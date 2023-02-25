@@ -36,14 +36,14 @@ public class Movement : MonoBehaviour
     {
         float turnInput = Input.GetAxis("Horizontal");
         turnInput = Mathf.Lerp(anim.GetFloat("velx"), turnInput, Time.deltaTime * 2f);
-        anim.SetFloat("velx", turnInput);
+        anim.SetFloat("velx", 1);
     }
 
     private void Move()
     {
         float moveInput = Input.GetAxis("Vertical");
         moveInput = Mathf.Lerp(anim.GetFloat("vely"), moveInput, Time.deltaTime * 1f);
-        anim.SetFloat("vely", moveInput);
+        anim.SetFloat("vely", 1);
       
         bool isMoving = Mathf.Abs(moveInput) > 0.01f;
         anim.SetBool("move", isMoving);
