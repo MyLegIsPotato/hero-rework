@@ -15,7 +15,7 @@ namespace Project.Gameplay.GameplaySystem
         [SerializeField]
         private Transform defaultSpawnPoint;
         
-        private Dictionary<InputDevice, Player> players;
+        private Dictionary<PlayerInput, Player> players;
         private PlayerFactory playerFactory;
 
         private void Start()
@@ -26,9 +26,10 @@ namespace Project.Gameplay.GameplaySystem
             InitializeInputHandlers();
         }
 
+
         private void InitializePlayerSystem()
         {
-            players = new Dictionary<InputDevice, Player>();
+            players = new Dictionary<PlayerInput, Player>();
             playerFactory = new PlayerFactory();
             playerFactory.Initialize(defaultSpawnPoint);
         }
@@ -37,23 +38,15 @@ namespace Project.Gameplay.GameplaySystem
         {
             DeviceHandler.Instance.Initialize();
             DeviceHandler.Instance.OnDeviceJoined += DeviceHandler_OnDeviceJoined;
-            DeviceHandler.Instance.OnDeviceDisconnected += DeviceHandler_OnDeviceDisconnected;
         }
 
-        private void DeviceHandler_OnDeviceJoined(InputDevice device)
+        private void DeviceHandler_OnDeviceJoined(PlayerInput playerInput)
         {
-            Debug.Log($"Player joined using {device.name}!");
             Player newPlayer = playerFactory.Spawn(playerPrefab);
-            newPlayer.Setup(device);
+            players.Add(playerInput, newPlayer);
+            newPlayer.Setup(playerInput);
         }
 
-        private void DeviceHandler_OnDeviceDisconnected(InputDevice device)
-        {
-            players.TryGetValue(device, out Player disconnectedPlayer);
-            PauseGame();
-            Debug.Log($"{disconnectedPlayer} disconnected! Plug the controller back in!");
-        }
-        
         private void PauseGame()
         {
             Time.timeScale = 0;

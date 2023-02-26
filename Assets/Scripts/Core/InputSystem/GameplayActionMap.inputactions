@@ -99,45 +99,6 @@
                 }
             ],
             "bindings": []
-        },
-        {
-            "name": "DeviceHandler",
-            "id": "71968d3e-bd99-4fa9-bdda-045978489d94",
-            "actions": [
-                {
-                    "name": "JoinGame",
-                    "type": "Button",
-                    "id": "7b4102cc-7b4b-46ae-9c45-8a6c3221f8f6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "2da0f793-99f3-470f-8278-26381d7dc9a7",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Xinput",
-                    "action": "JoinGame",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "73141d7a-3e95-4862-b6e9-6a8a4097865e",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "JoinGame",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": [

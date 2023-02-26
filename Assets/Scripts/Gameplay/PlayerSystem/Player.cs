@@ -1,21 +1,22 @@
 using Project.Common.Factory;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Project.Gameplay.PlayerSystem
 {
     public class Player : MonoBehaviour, ISpawnable<Player>
     {
-        [SerializeField]
-        private Project.Core.Input.PlayerInput playerInput;
+        [FormerlySerializedAs("playerInput")] [SerializeField]
+        private Project.Core.Input.MyPlayerInput myPlayerInput;
 
         [SerializeField]
         private PlayerMovement playerMovement;
 
-        public void Setup(InputDevice device)
+        public void Setup(PlayerInput playerInput)
         {
-            playerInput.Setup(device);
-            playerMovement.Setup(playerInput);
+            myPlayerInput.Setup(playerInput);
+            playerMovement.Setup(myPlayerInput);
         }
         
         public Player Spawn(Transform spawnPoint)

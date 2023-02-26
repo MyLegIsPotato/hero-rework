@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42028e7b805c44c4ea8defb9aab3deaa
+guid: 3a7b04624f00d674aab75da30af0a877
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -8,7 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
-  generateWrapperCode: 0
-  wrapperCodePath: Assets/Scripts/Core/InputSystem/GameplayActionMap.cs
+  generateWrapperCode: 1
+  wrapperCodePath: Assets/Scripts/Core/InputSystem/JoiningActionMap.cs
   wrapperClassName: 
   wrapperCodeNamespace: 

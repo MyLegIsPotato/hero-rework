@@ -9,9 +9,9 @@ namespace Project.Core.Input
         [SerializeField]
         private BoxCollider visualizerPlate;
 
-        public void Setup(PlayerInput playerInput)
+        public void Setup(MyPlayerInput myPlayerInput)
         {
-            playerInput.OnMovePerformed += UpdateVisualizer;
+            myPlayerInput.OnMovementPerformed += UpdateVisualizer;
         }
 
         public void UpdateVisualizer(Vector2 inputVector)

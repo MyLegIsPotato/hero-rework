@@ -10,27 +10,21 @@ namespace Project.Core.Input
         Canceled
     }
     
-    public class PlayerInput : MonoBehaviour, GameplayActionMap.IPlayerAttackActions, GameplayActionMap.IPlayerMovementActions
+    public class MyPlayerInput : MonoBehaviour
     {
-        [SerializeField]
-        private GameplayActionMap gameplayActionMap;
-        
+        private PlayerInput playerInput;
         private InputDevice playerDevice;
         
         public Vector2 MovementVector { get; private set; } = Vector2.zero;
-        public Action<Vector2> OnMovePerformed;
         
-        [SerializeField]
-        private InputActionReference moveActionReference;
-
-        public void Setup(InputDevice playerDevice)
-        {   
-            this.playerDevice = playerDevice;
+        public Action<Vector2> OnMovementPerformed;
+        
+        public void Setup(PlayerInput playerInput)
+        {
+            this.playerInput = playerInput;
+            this.playerDevice = playerInput.devices[0];
+            
             Debug.Log($"Player has joined the game! His device is {playerDevice.name}");
-            OnMovePerformed = delegate(Vector2 vector2) {  };
-            gameplayActionMap = new GameplayActionMap();
-            gameplayActionMap.PlayerMovement.SetCallbacks(this);
-            gameplayActionMap.Enable();
         }
 
         public void Update()
@@ -49,7 +43,7 @@ namespace Project.Core.Input
             if (playerDevice == context.control.device)
             {
                 MovementVector = context.ReadValue<Vector2>();
-                OnMovePerformed?.Invoke(MovementVector);
+                //OnMovePerformed?.Invoke(MovementVector);
             }
         }
 
