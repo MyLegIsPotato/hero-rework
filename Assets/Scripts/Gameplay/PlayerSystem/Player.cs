@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using Project.Common.Factory;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PlayerInput = Project.Core.PlayerInput;
 
 namespace Project.Gameplay.PlayerSystem
 {
-    public class Player : MonoBehaviour, ISpawnable
+    public class Player : MonoBehaviour, ISpawnable<Player>
     {
         [SerializeField]
-        private PlayerInput playerInput;
+        private Project.Core.Input.PlayerInput playerInput;
 
         [SerializeField]
         private PlayerMovement playerMovement;
@@ -18,11 +15,14 @@ namespace Project.Gameplay.PlayerSystem
         public void Setup(InputDevice device)
         {
             playerInput.Setup(device);
+            playerMovement.Setup(playerInput);
         }
         
-        public void Spawn(Transform spawnPoint)
+        public Player Spawn(Transform spawnPoint)
         {
-            Instantiate(this.gameObject, spawnPoint.position, Quaternion.identity);
+            Player newPlayer = Instantiate(this.gameObject).GetComponent<Player>();
+            transform.position = spawnPoint.position;
+            return newPlayer;
         }
 
         public void Despawn()

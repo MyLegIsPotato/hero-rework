@@ -1,46 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Project.Core;
+using Project.Core.Input;
 using UnityEngine;
 
 namespace Project.Gameplay
 {
-    public class PlayerMovement : MonoBehaviour, IMovable
+    public class PlayerMovement : MovementSystem
     {
-        [field: SerializeField]
-        public float Speed { get; private set; }
+        public InputVisualizer inputVisualizer;
+        private PlayerInput playerInput;
 
-        [field: SerializeField]
-        public float DashSpeed { get; private set; }
-
-        [field: SerializeField]
-        public float RotationSpeed { get; private set; }
-
-        public void Awake()
+        public void Setup(PlayerInput playerInput)
         {
-
+            this.playerInput = playerInput;
+            inputVisualizer.Setup(this.playerInput);
         }
 
-        public void Update()
+        private void Update()
         {
-
-        }
-
-        public void Move(Vector2 direction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Rotate(Vector2 direction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Stop()
-        {
-            throw new NotImplementedException();
+            this.transform.position += new Vector3(
+                playerInput.MovementVector.x * Speed * Time.deltaTime, 
+                0,
+                playerInput.MovementVector.y * Speed * Time.deltaTime);
         }
     }
-
 }

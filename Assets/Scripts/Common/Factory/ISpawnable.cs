@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Project.Common.Factory
 {
-    public interface ISpawnable
+    public interface ISpawnable<T>
     {
-        void Spawn(Transform spawnPoint);
+        T Spawn(Transform spawnPoint);
         void Despawn();
     }
 }

@@ -1,12 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using System;
 using Project.Common.Patterns;
 using UnityEngine.InputSystem;
 
-namespace Project.Core
+namespace Project.Core.Input
 {
     public class DeviceHandler : Singleton<DeviceHandler>, GameplayActionMap.IDeviceHandlerActions
     {
@@ -27,7 +25,6 @@ namespace Project.Core
         {
             OnDeviceJoined = delegate(InputDevice device) { };
             OnDeviceDisconnected = delegate(InputDevice device) { };
-            InputSystem.onDeviceChange += OnDeviceChange;
         }
 
         private void InitializeMaps()

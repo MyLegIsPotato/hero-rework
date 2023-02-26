@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using Project.Common.Patterns;
-using Project.Core;
+using Project.Core.Input;
 using Project.Gameplay.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;

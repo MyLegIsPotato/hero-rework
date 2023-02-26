@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Common.Factory
 {
-    public abstract class EntityFactory<T> where T : ISpawnable
+    public abstract class EntityFactory<T> where T : ISpawnable<T>
     {
         public Transform CurrentSpawnPoint { get; private set; }
         private List<T> spawnables = new List<T>();
@@ -21,9 +21,9 @@ namespace Project.Common.Factory
         /// <returns></returns>
         public virtual T Spawn(T spawnable)
         {
-            spawnable.Spawn(CurrentSpawnPoint);
+            T spawnedObject = spawnable.Spawn(CurrentSpawnPoint);
             spawnables.Add(spawnable);
-            return spawnable;
+            return spawnedObject;
         }
     
         public virtual void Despawn(T spawnable)

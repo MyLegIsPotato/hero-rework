@@ -31,7 +31,7 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""3409d4a4-29e6-4e6e-b2fa-429821e5aa84"",
-                    ""expectedControlType"": ""Analog"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -39,8 +39,8 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""57d777f9-16e7-4293-b64f-83c8d7e259a6"",
+                    ""name"": ""WSAD"",
+                    ""id"": ""9acd6055-eb9f-490d-8e6e-bd950215a56f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -51,47 +51,58 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""992ae2df-249a-4106-a7f1-d03acca92048"",
+                    ""id"": ""e3dccdd3-6679-4546-80a0-6c9cef7683a0"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""4989d4d3-42a4-461f-a08d-92ae367f5ea0"",
+                    ""id"": ""cd72f89e-face-4164-bed3-83fcd0172849"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""6808872e-6d19-4bbe-80f2-349d978dbbab"",
+                    ""id"": ""b60a9490-3f9a-4810-814a-00efb7b36bcc"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""774dcd76-5e25-47d7-8fde-2cf264ef7b5c"",
+                    ""id"": ""98ab13a5-e1ea-4e76-b551-23b937de23f3"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6df7bc10-d56a-48ea-935c-2f39b4d70f5a"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xinput"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -109,19 +120,7 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 }
             ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""55e4470f-f0bb-4dc7-81ca-86073ee0f222"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ActivateSkill"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
+            ""bindings"": []
         },
         {
             ""name"": ""DeviceHandler"",
@@ -140,22 +139,22 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""e3ac92ef-b9a8-4ee6-b01d-35f98851fef2"",
+                    ""id"": ""2da0f793-99f3-470f-8278-26381d7dc9a7"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Xinput"",
                     ""action"": ""JoinGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8308fdd2-a5b3-41c0-85f2-80e27f09561f"",
+                    ""id"": ""73141d7a-3e95-4862-b6e9-6a8a4097865e"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""JoinGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -163,7 +162,35 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""KBM"",
+            ""bindingGroup"": ""KBM"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Xinput"",
+            ""bindingGroup"": ""Xinput"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
@@ -328,6 +355,24 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         }
     }
     public DeviceHandlerActions @DeviceHandler => new DeviceHandlerActions(this);
+    private int m_KBMSchemeIndex = -1;
+    public InputControlScheme KBMScheme
+    {
+        get
+        {
+            if (m_KBMSchemeIndex == -1) m_KBMSchemeIndex = asset.FindControlSchemeIndex("KBM");
+            return asset.controlSchemes[m_KBMSchemeIndex];
+        }
+    }
+    private int m_XinputSchemeIndex = -1;
+    public InputControlScheme XinputScheme
+    {
+        get
+        {
+            if (m_XinputSchemeIndex == -1) m_XinputSchemeIndex = asset.FindControlSchemeIndex("Xinput");
+            return asset.controlSchemes[m_XinputSchemeIndex];
+        }
+    }
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
