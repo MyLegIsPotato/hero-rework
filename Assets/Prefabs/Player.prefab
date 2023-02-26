@@ -533,6 +533,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9006134a41e96e44ca8fe903f42cd3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveActionReference: {fileID: -3786998323890442104, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+    type: 3}
+  attackActionReference: {fileID: -2788654155583069134, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+    type: 3}
 --- !u!114 &539767875
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,30 +24,7 @@ namespace Project.Core.Input
         {
             InitializeMaps();
             InitializeActions();
-
-            playerInputManager.onPlayerJoined += PlayerInputManager_onPlayerJoined;
-        }
-        
-        public void OnJoinGame(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-            {
-                if(joinedDevices.Contains(context.control.device))
-                    return;
-
-                playerInputManager.playerPrefab = playerInputHandlerPrefab.gameObject;
-                PlayerInput newPlayerInput = playerInputManager.JoinPlayer(playerInputs.Count, playerInputs.Count, "KBM", context.control.device);
-                newPlayerInput.transform.parent = transform;
-                playerInputs.Add(newPlayerInput);
-                joinedDevices.Add(context.control.device);
-                OnDeviceJoined?.Invoke(newPlayerInput);
-            }
-        }
-        
-        private void PlayerInputManager_onPlayerJoined(UnityEngine.InputSystem.PlayerInput playerInput)
-        {
-            Debug.Log($"Player joined using {playerInput.name}!");
-        }
+        }   
         
         private void InitializeActions()
         {
@@ -62,6 +39,27 @@ namespace Project.Core.Input
             JoiningActionMap joinActionMap = new JoiningActionMap();
             joinActionMap.JoinGame.SetCallbacks(this);
             joinActionMap.Enable();
+        }
+        
+        public void OnJoinGame(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if(joinedDevices.Contains(context.control.device))
+                    return;
+
+                AddNewPlayerByDevice(context);
+            }
+        }
+
+        private void AddNewPlayerByDevice(InputAction.CallbackContext context)
+        {
+            playerInputManager.playerPrefab = playerInputHandlerPrefab.gameObject;
+            PlayerInput newPlayerInput =
+                playerInputManager.JoinPlayer(playerInputs.Count, playerInputs.Count, "KBM", context.control.device);
+            playerInputs.Add(newPlayerInput);
+            joinedDevices.Add(context.control.device);
+            OnDeviceJoined?.Invoke(newPlayerInput);
         }
     }
 }

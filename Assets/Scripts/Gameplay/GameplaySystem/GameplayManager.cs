@@ -25,8 +25,7 @@ namespace Project.Gameplay.GameplaySystem
             InitializePlayerSystem();
             InitializeInputHandlers();
         }
-
-
+        
         private void InitializePlayerSystem()
         {
             players = new Dictionary<PlayerInput, Player>();
@@ -42,9 +41,21 @@ namespace Project.Gameplay.GameplaySystem
 
         private void DeviceHandler_OnDeviceJoined(PlayerInput playerInput)
         {
+            var newPlayer = AddNewPlayer(playerInput);
+            ReparentInputHandler(playerInput, newPlayer);
+        }
+
+        private Player AddNewPlayer(PlayerInput playerInput)
+        {
             Player newPlayer = playerFactory.Spawn(playerPrefab);
             players.Add(playerInput, newPlayer);
             newPlayer.Setup(playerInput);
+            return newPlayer;
+        }
+
+        private void ReparentInputHandler(PlayerInput playerInput, Player player)
+        {
+            playerInput.transform.SetParent(player.transform);
         }
 
         private void PauseGame()

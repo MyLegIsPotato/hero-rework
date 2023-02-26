@@ -5,6 +5,6 @@ namespace Project.Gameplay.PlayerSystem
 {
     public class PlayerFactory : EntityFactory<Player>
     {
-        
+
     }
 }
