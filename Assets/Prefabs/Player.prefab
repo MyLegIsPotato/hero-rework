@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918e70743c4898a4396e78afc553242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 2837798803219162754}
+  myPlayerInput: {fileID: 2837798803219162754}
   playerMovement: {fileID: 539767875}
 --- !u!114 &2837798803219162754
 MonoBehaviour:
@@ -534,6 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveActionReference: {fileID: -3786998323890442104, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+    type: 3}
+  attackActionReference: {fileID: -2788654155583069134, guid: 42028e7b805c44c4ea8defb9aab3deaa,
     type: 3}
 --- !u!114 &539767875
 MonoBehaviour:

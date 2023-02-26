@@ -99,7 +99,7 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xinput"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -121,45 +121,6 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": []
-        },
-        {
-            ""name"": ""DeviceHandler"",
-            ""id"": ""71968d3e-bd99-4fa9-bdda-045978489d94"",
-            ""actions"": [
-                {
-                    ""name"": ""JoinGame"",
-                    ""type"": ""Button"",
-                    ""id"": ""7b4102cc-7b4b-46ae-9c45-8a6c3221f8f6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""2da0f793-99f3-470f-8278-26381d7dc9a7"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xinput"",
-                    ""action"": ""JoinGame"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""73141d7a-3e95-4862-b6e9-6a8a4097865e"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KBM"",
-                    ""action"": ""JoinGame"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -180,11 +141,11 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Xinput"",
-            ""bindingGroup"": ""Xinput"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<XInputController>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -198,9 +159,6 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         // PlayerAttack
         m_PlayerAttack = asset.FindActionMap("PlayerAttack", throwIfNotFound: true);
         m_PlayerAttack_ActivateSkill = m_PlayerAttack.FindAction("ActivateSkill", throwIfNotFound: true);
-        // DeviceHandler
-        m_DeviceHandler = asset.FindActionMap("DeviceHandler", throwIfNotFound: true);
-        m_DeviceHandler_JoinGame = m_DeviceHandler.FindAction("JoinGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -322,39 +280,6 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         }
     }
     public PlayerAttackActions @PlayerAttack => new PlayerAttackActions(this);
-
-    // DeviceHandler
-    private readonly InputActionMap m_DeviceHandler;
-    private IDeviceHandlerActions m_DeviceHandlerActionsCallbackInterface;
-    private readonly InputAction m_DeviceHandler_JoinGame;
-    public struct DeviceHandlerActions
-    {
-        private @GameplayActionMap m_Wrapper;
-        public DeviceHandlerActions(@GameplayActionMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @JoinGame => m_Wrapper.m_DeviceHandler_JoinGame;
-        public InputActionMap Get() { return m_Wrapper.m_DeviceHandler; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DeviceHandlerActions set) { return set.Get(); }
-        public void SetCallbacks(IDeviceHandlerActions instance)
-        {
-            if (m_Wrapper.m_DeviceHandlerActionsCallbackInterface != null)
-            {
-                @JoinGame.started -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
-                @JoinGame.performed -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
-                @JoinGame.canceled -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
-            }
-            m_Wrapper.m_DeviceHandlerActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @JoinGame.started += instance.OnJoinGame;
-                @JoinGame.performed += instance.OnJoinGame;
-                @JoinGame.canceled += instance.OnJoinGame;
-            }
-        }
-    }
-    public DeviceHandlerActions @DeviceHandler => new DeviceHandlerActions(this);
     private int m_KBMSchemeIndex = -1;
     public InputControlScheme KBMScheme
     {
@@ -364,13 +289,13 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KBMSchemeIndex];
         }
     }
-    private int m_XinputSchemeIndex = -1;
-    public InputControlScheme XinputScheme
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_XinputSchemeIndex == -1) m_XinputSchemeIndex = asset.FindControlSchemeIndex("Xinput");
-            return asset.controlSchemes[m_XinputSchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     public interface IPlayerMovementActions
@@ -380,9 +305,5 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
     public interface IPlayerAttackActions
     {
         void OnActivateSkill(InputAction.CallbackContext context);
-    }
-    public interface IDeviceHandlerActions
-    {
-        void OnJoinGame(InputAction.CallbackContext context);
     }
 }

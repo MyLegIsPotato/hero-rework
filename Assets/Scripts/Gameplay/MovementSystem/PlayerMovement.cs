@@ -6,20 +6,23 @@ namespace Project.Gameplay
     public class PlayerMovement : MovementSystem
     {
         public InputVisualizer inputVisualizer;
-        private PlayerInput playerInput;
+        private MyPlayerInput myPlayerInput;
 
-        public void Setup(PlayerInput playerInput)
+        public void Setup(MyPlayerInput myPlayerInput)
         {
-            this.playerInput = playerInput;
-            inputVisualizer.Setup(this.playerInput);
+            this.myPlayerInput = myPlayerInput;
+            inputVisualizer.Setup(this.myPlayerInput);
         }
 
         private void Update()
         {
+            if(myPlayerInput == null)
+                return;
+            
             this.transform.position += new Vector3(
-                playerInput.MovementVector.x * Speed * Time.deltaTime, 
+                myPlayerInput.MovementVector.x * Speed * Time.deltaTime, 
                 0,
-                playerInput.MovementVector.y * Speed * Time.deltaTime);
+                myPlayerInput.MovementVector.y * Speed * Time.deltaTime);
         }
     }
 }
