@@ -1,9 +1,7 @@
 {
-    "name": "Gameplay",
+    "name": "Common",
     "rootNamespace": "",
     "references": [
-        "GUID:fd04ee86a81f4554dacbfcbfdd826bc8",
-        "GUID:67b7605b99948b644b5f4e363409f555",
         "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
