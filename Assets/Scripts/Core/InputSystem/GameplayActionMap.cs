@@ -31,7 +31,7 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""3409d4a4-29e6-4e6e-b2fa-429821e5aa84"",
-                    ""expectedControlType"": ""Analog"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -39,8 +39,8 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""57d777f9-16e7-4293-b64f-83c8d7e259a6"",
+                    ""name"": ""WSAD"",
+                    ""id"": ""9acd6055-eb9f-490d-8e6e-bd950215a56f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -51,47 +51,58 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""992ae2df-249a-4106-a7f1-d03acca92048"",
+                    ""id"": ""e3dccdd3-6679-4546-80a0-6c9cef7683a0"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""4989d4d3-42a4-461f-a08d-92ae367f5ea0"",
+                    ""id"": ""cd72f89e-face-4164-bed3-83fcd0172849"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""6808872e-6d19-4bbe-80f2-349d978dbbab"",
+                    ""id"": ""b60a9490-3f9a-4810-814a-00efb7b36bcc"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""774dcd76-5e25-47d7-8fde-2cf264ef7b5c"",
+                    ""id"": ""98ab13a5-e1ea-4e76-b551-23b937de23f3"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6df7bc10-d56a-48ea-935c-2f39b4d70f5a"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xinput"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -109,22 +120,77 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 }
             ],
+            ""bindings"": []
+        },
+        {
+            ""name"": ""DeviceHandler"",
+            ""id"": ""71968d3e-bd99-4fa9-bdda-045978489d94"",
+            ""actions"": [
+                {
+                    ""name"": ""JoinGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b4102cc-7b4b-46ae-9c45-8a6c3221f8f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""55e4470f-f0bb-4dc7-81ca-86073ee0f222"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""2da0f793-99f3-470f-8278-26381d7dc9a7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ActivateSkill"",
+                    ""groups"": ""Xinput"",
+                    ""action"": ""JoinGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73141d7a-3e95-4862-b6e9-6a8a4097865e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""JoinGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""KBM"",
+            ""bindingGroup"": ""KBM"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Xinput"",
+            ""bindingGroup"": ""Xinput"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
@@ -132,6 +198,9 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         // PlayerAttack
         m_PlayerAttack = asset.FindActionMap("PlayerAttack", throwIfNotFound: true);
         m_PlayerAttack_ActivateSkill = m_PlayerAttack.FindAction("ActivateSkill", throwIfNotFound: true);
+        // DeviceHandler
+        m_DeviceHandler = asset.FindActionMap("DeviceHandler", throwIfNotFound: true);
+        m_DeviceHandler_JoinGame = m_DeviceHandler.FindAction("JoinGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -253,6 +322,57 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         }
     }
     public PlayerAttackActions @PlayerAttack => new PlayerAttackActions(this);
+
+    // DeviceHandler
+    private readonly InputActionMap m_DeviceHandler;
+    private IDeviceHandlerActions m_DeviceHandlerActionsCallbackInterface;
+    private readonly InputAction m_DeviceHandler_JoinGame;
+    public struct DeviceHandlerActions
+    {
+        private @GameplayActionMap m_Wrapper;
+        public DeviceHandlerActions(@GameplayActionMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @JoinGame => m_Wrapper.m_DeviceHandler_JoinGame;
+        public InputActionMap Get() { return m_Wrapper.m_DeviceHandler; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DeviceHandlerActions set) { return set.Get(); }
+        public void SetCallbacks(IDeviceHandlerActions instance)
+        {
+            if (m_Wrapper.m_DeviceHandlerActionsCallbackInterface != null)
+            {
+                @JoinGame.started -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
+                @JoinGame.performed -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
+                @JoinGame.canceled -= m_Wrapper.m_DeviceHandlerActionsCallbackInterface.OnJoinGame;
+            }
+            m_Wrapper.m_DeviceHandlerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @JoinGame.started += instance.OnJoinGame;
+                @JoinGame.performed += instance.OnJoinGame;
+                @JoinGame.canceled += instance.OnJoinGame;
+            }
+        }
+    }
+    public DeviceHandlerActions @DeviceHandler => new DeviceHandlerActions(this);
+    private int m_KBMSchemeIndex = -1;
+    public InputControlScheme KBMScheme
+    {
+        get
+        {
+            if (m_KBMSchemeIndex == -1) m_KBMSchemeIndex = asset.FindControlSchemeIndex("KBM");
+            return asset.controlSchemes[m_KBMSchemeIndex];
+        }
+    }
+    private int m_XinputSchemeIndex = -1;
+    public InputControlScheme XinputScheme
+    {
+        get
+        {
+            if (m_XinputSchemeIndex == -1) m_XinputSchemeIndex = asset.FindControlSchemeIndex("Xinput");
+            return asset.controlSchemes[m_XinputSchemeIndex];
+        }
+    }
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -260,5 +380,9 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
     public interface IPlayerAttackActions
     {
         void OnActivateSkill(InputAction.CallbackContext context);
+    }
+    public interface IDeviceHandlerActions
+    {
+        void OnJoinGame(InputAction.CallbackContext context);
     }
 }
