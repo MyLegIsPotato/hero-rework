@@ -9,26 +9,21 @@ namespace Project.Gameplay.GameplaySystem
 {
     public class GameplayManager : Singleton<GameplayManager>
     {
-        [SerializeField]
-        private Player playerPrefab;
-
-        [SerializeField]
-        private Transform defaultSpawnPoint;
+        [SerializeField] private Player playerPrefab;
+        [SerializeField] private Transform defaultSpawnPoint;
         
-        private Dictionary<PlayerInput, Player> players;
+        private Dictionary<PlayerInput, Player> players = new Dictionary<PlayerInput, Player>();
         private PlayerFactory playerFactory;
 
         private void Start()
         {
             Debug.Log("Gameplay starting...");
-            
             InitializePlayerSystem();
             InitializeInputHandlers();
         }
         
         private void InitializePlayerSystem()
         {
-            players = new Dictionary<PlayerInput, Player>();
             playerFactory = new PlayerFactory();
             playerFactory.Initialize(defaultSpawnPoint);
         }
@@ -36,12 +31,12 @@ namespace Project.Gameplay.GameplaySystem
         private void InitializeInputHandlers()
         {
             DeviceHandler.Instance.Initialize();
-            DeviceHandler.Instance.OnDeviceJoined += DeviceHandler_OnDeviceJoined;
+            DeviceHandler.Instance.OnDeviceJoined += HandleDeviceJoined;
         }
 
-        private void DeviceHandler_OnDeviceJoined(PlayerInput playerInput)
+        private void HandleDeviceJoined(PlayerInput playerInput)
         {
-            var newPlayer = AddNewPlayer(playerInput);
+            Player newPlayer = AddNewPlayer(playerInput);
             ReparentInputHandler(playerInput, newPlayer);
         }
 
