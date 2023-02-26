@@ -99,7 +99,7 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xinput"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -141,11 +141,11 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Xinput"",
-            ""bindingGroup"": ""Xinput"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<XInputController>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -289,13 +289,13 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KBMSchemeIndex];
         }
     }
-    private int m_XinputSchemeIndex = -1;
-    public InputControlScheme XinputScheme
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_XinputSchemeIndex == -1) m_XinputSchemeIndex = asset.FindControlSchemeIndex("Xinput");
-            return asset.controlSchemes[m_XinputSchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     public interface IPlayerMovementActions
