@@ -11,8 +11,10 @@ namespace Project.Core.Input
         private InputDevice playerDevice;
         
         public Vector2 MovementVector { get; private set; } = Vector2.zero;
-        public bool IsAttackHeld { get; private set; }
-         
+
+        /// <summary>
+        /// Event raised when movement input is performed.
+        /// </summary>
         public Action<Vector2> OnMovementPerformed;
         
         [SerializeField]
@@ -47,6 +49,5 @@ namespace Project.Core.Input
             MovementVector = context.ReadValue<Vector2>();
             OnMovementPerformed?.Invoke(MovementVector);
         }
-
     }
 }
