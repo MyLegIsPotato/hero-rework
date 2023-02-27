@@ -7,11 +7,13 @@ namespace Project.Gameplay.AnimationSystem
     public class PlayerAnimation : MonoBehaviour
     {
         private MyPlayerInput myPlayerInput;
+        private PlayerMovement playerMovement;
         private Animator anim;
         
-        public void Setup(MyPlayerInput myPlayerInput)
+        public void Setup(MyPlayerInput myPlayerInput, PlayerMovement playerMovement)
         {
             this.myPlayerInput = myPlayerInput;
+            this.playerMovement = playerMovement;
         }
         
         private void Start()
@@ -22,7 +24,8 @@ namespace Project.Gameplay.AnimationSystem
         private void Update()
         {
             anim.SetFloat("velx", myPlayerInput.MovementVector.x);
-            anim.SetFloat("vely", myPlayerInput.MovementVector.y);
+            Debug.Log(playerMovement.movementVelocity);
+            anim.SetFloat("vely", playerMovement.movementVelocity);
         }
     } 
 }

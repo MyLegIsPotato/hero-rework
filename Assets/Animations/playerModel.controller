@@ -433,16 +433,7 @@ BlendTree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BlendTree
-  m_Childs:
-  - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: be9400e469913b9459e00f3afa22b35f,
-      type: 3}
-    m_Threshold: -0.7
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: vely
-    m_Mirror: 0
+  m_Childs: []
   m_BlendParameter: vely
   m_BlendParameterY: vely
   m_MinThreshold: -0.7
@@ -458,14 +449,6 @@ BlendTree:
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
   m_Childs:
-  - serializedVersion: 2
-    m_Motion: {fileID: 1386523043992617508}
-    m_Threshold: -0.7
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: vely
-    m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: -2256544449038558194}
     m_Threshold: 0
