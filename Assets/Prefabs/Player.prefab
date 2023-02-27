@@ -192,8 +192,8 @@ Transform:
   m_LocalScale: {x: 3, y: 0.01, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7539716517838333214}
-  m_RootOrder: 2
+  m_Father: {fileID: 3552191126925977757}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5906705244941547522
 MeshFilter:
@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3552191126925977757}
   - component: {fileID: 6451275260132926213}
+  - component: {fileID: 3149737942147340454}
   m_Layer: 0
   m_Name: InputVisualizer
   m_TagString: Untagged
@@ -286,7 +287,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6470032003478507775}
+  - {fileID: 2522002546625452662}
   m_Father: {fileID: 7539716517838333214}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -304,6 +307,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualizerIndicator: {fileID: 2522002546625452662}
   visualizerPlate: {fileID: 5570037707638340931}
+--- !u!114 &3149737942147340454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343928481754466972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c9e31cab4fd244eb8e456c36e17e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2468626212038480416
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7539716517838333214}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1899539653046723824
 SkinnedMeshRenderer:
@@ -837,7 +852,7 @@ Transform:
   - {fileID: 4343893194063368003}
   - {fileID: 190826638668958703}
   m_Father: {fileID: 7539716517838333214}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4862074839722808950
 GameObject:
@@ -965,8 +980,8 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7539716517838333214}
-  m_RootOrder: 3
+  m_Father: {fileID: 3552191126925977757}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6887295384917261987
 MeshFilter:
@@ -1409,7 +1424,7 @@ GameObject:
   - component: {fileID: 7625802271545185786}
   - component: {fileID: 2837798803219162754}
   - component: {fileID: 539767875}
-  - component: {fileID: 1041174402169268931}
+  - component: {fileID: 2337596261115992994}
   - component: {fileID: 3939405427376055135}
   m_Layer: 0
   m_Name: Player
@@ -1432,8 +1447,6 @@ Transform:
   m_Children:
   - {fileID: 1344848346141567844}
   - {fileID: 3552191126925977757}
-  - {fileID: 6470032003478507775}
-  - {fileID: 2522002546625452662}
   - {fileID: 490058955373017212}
   - {fileID: 8972512405848107349}
   m_Father: {fileID: 0}
@@ -1453,7 +1466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlayerInput: {fileID: 2837798803219162754}
   playerMovement: {fileID: 539767875}
-  playerAnimation: {fileID: 1041174402169268931}
+  playerAnimation: {fileID: 0}
 --- !u!114 &2837798803219162754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1499,7 @@ MonoBehaviour:
   <DashSpeed>k__BackingField: 0
   <RotationSpeed>k__BackingField: 0
   inputVisualizer: {fileID: 6451275260132926213}
---- !u!114 &1041174402169268931
+--- !u!114 &2337596261115992994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1495,9 +1508,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7984038833334762223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec7ad0803e1f5c4b99c02c61b2a66b8, type: 3}
+  m_Script: {fileID: 11500000, guid: b0cc07c52cb690047bc512564a380648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAt: {x: 0, y: 0, z: 0}
+  waitDelay: 1
+  destination: {fileID: 2522002546625452662}
+  looking: 1
+  head: {fileID: 2522002546625452662}
+  rotationSpeed: 1
+  lookAtCoolTime: 0.2
+  lookAtHeatTime: 0.2
 --- !u!95 &3939405427376055135
 Animator:
   serializedVersion: 5

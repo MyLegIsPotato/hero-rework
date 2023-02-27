@@ -24,7 +24,7 @@ namespace Project.Gameplay.PlayerSystem
         {
             myPlayerInput.Setup(playerInput);
             playerMovement.Setup(myPlayerInput);
-            playerAnimation.Setup(myPlayerInput);
+            //playerAnimation.Setup(myPlayerInput);
         }
     
         /// <summary>
