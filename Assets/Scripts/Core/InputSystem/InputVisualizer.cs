@@ -4,7 +4,7 @@ namespace Project.Core.Input
 {
     public class InputVisualizer : MonoBehaviour
     {
-        [SerializeField] private Transform visualizerIndicator;
+        public Transform visualizerIndicator;
         [SerializeField] private BoxCollider visualizerPlate;
 
         private MyPlayerInput myPlayerInput;

@@ -45,7 +45,6 @@ namespace Project.Core.Input
         
         public void OnMovement(InputAction.CallbackContext context)
         {
-            Debug.Log($"Input on {context.control.device.name} is {context.ReadValue<Vector2>()}, phase: {context.phase}");
             MovementVector = context.ReadValue<Vector2>();
             OnMovementPerformed?.Invoke(MovementVector);
         }
