@@ -8,20 +8,28 @@ namespace Project.Gameplay.AnimationSystem
     {
         private MyPlayerInput myPlayerInput;
         private Animator anim;
+        private float smoothingFactor = 0.01f;
+        private Vector2 smoothedInput = Vector2.zero; // added smoothedInput
+
+        // Tune this value to adjust the smoothing amount
+       
+
         public void Setup(MyPlayerInput myPlayerInput)
         {
             this.myPlayerInput = myPlayerInput;
-
         }
+
         private void Start()
         {
             anim = GetComponent<Animator>();
         }
+
         private void Update()
         {
-             
-            anim.SetFloat("velx", myPlayerInput.MovementVector.x);
-            anim.SetFloat("vely", myPlayerInput.MovementVector.y);
+            smoothedInput = Vector2.Lerp(smoothedInput, myPlayerInput.MovementVector, smoothingFactor); // apply smoothing to the MovementVector
+            anim.SetFloat("velx", smoothedInput.x);
+            anim.SetFloat("vely", smoothedInput.y);
         }
-    } 
+    }
+
 }
