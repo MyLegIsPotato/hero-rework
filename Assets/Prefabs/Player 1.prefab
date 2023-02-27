@@ -1424,6 +1424,7 @@ GameObject:
   - component: {fileID: 7625802271545185786}
   - component: {fileID: 2837798803219162754}
   - component: {fileID: 539767875}
+  - component: {fileID: 5576800339759600047}
   - component: {fileID: 3939405427376055135}
   m_Layer: 0
   m_Name: Player 1
@@ -1465,6 +1466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlayerInput: {fileID: 2837798803219162754}
   playerMovement: {fileID: 539767875}
+  playerAnimation: {fileID: 5576800339759600047}
 --- !u!114 &2837798803219162754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,6 +1501,18 @@ MonoBehaviour:
   inputDeadzone: 0.3
   rotateDeadzoneAngle: 30
   inputVisualizer: {fileID: 6451275260132926213}
+--- !u!114 &5576800339759600047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984038833334762223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f0cab91c25ec24dae862282df340f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3939405427376055135
 Animator:
   serializedVersion: 5

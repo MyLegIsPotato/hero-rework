@@ -1,4 +1,5 @@
 using Project.Common.Factory;
+using Project.Gameplay.AnimationSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -13,6 +14,9 @@ namespace Project.Gameplay.PlayerSystem
         [SerializeField]
         private PlayerMovement playerMovement;
 
+        [SerializeField]
+        private PlayerAnimation playerAnimation;
+
         /// <summary>
         /// Sets up the player with the given input.
         /// </summary>
@@ -20,6 +24,7 @@ namespace Project.Gameplay.PlayerSystem
         {
             myPlayerInput.Setup(playerInput);
             playerMovement.Setup(myPlayerInput);
+            playerAnimation.Setup(myPlayerInput);
         }
     
         /// <summary>
