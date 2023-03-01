@@ -15,6 +15,15 @@ namespace Project.Gameplay
         private MyPlayerInput myPlayerInput;
 
         public float movementVelocity;
+        public float turnAmount;
+
+        private float angle;
+        private float length;
+        private Vector3 pointA;
+        private Vector3 pointB;
+        
+        private float smoothVelocity = 0;
+        private float smoothTime = 0.3f;
         
         public void Setup(MyPlayerInput myPlayerInput)
         {
@@ -41,26 +50,45 @@ namespace Project.Gameplay
         private void UpdateRotation()
         {
             Vector3 velocityVector = inputVisualizer.visualizerIndicator.position - transform.position;
-            movementVelocity = velocityVector.magnitude;
+
+            pointA = inputVisualizer.visualizerIndicator.transform.position;
+            pointB = ((Vector3)transform.position + ((Vector3)transform.forward * myPlayerInput.MovementVector.magnitude));
+            length = (pointA - pointB).magnitude;
+            angle = Vector3.SignedAngle(transform.forward, inputVisualizer.visualizerIndicator.position - transform.position, Vector3.up);
+            Debug.Log(angle);
             
             if (myPlayerInput.MovementVector.magnitude > inputDeadzone)
             {
-                //Calculate angle between Player's forward and location of inputVisualizer.indicator
-                float angle = Vector3.SignedAngle(transform.forward, inputVisualizer.visualizerIndicator.position - transform.position, Vector3.up);
-                Debug.Log("Angle: " + angle + "");
-
+                if (Mathf.Abs(angle) > rotateDeadzoneAngle)
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation,
+                        Quaternion.LookRotation(inputVisualizer.visualizerIndicator.position - transform.position),
+                        RotationSpeed * Time.deltaTime);
+                movementVelocity = Mathf.SmoothDamp(movementVelocity, velocityVector.magnitude, ref smoothVelocity, smoothTime);
                 
-                if(Mathf.Abs(angle) > rotateDeadzoneAngle)
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(inputVisualizer.visualizerIndicator.position - transform.position), RotationSpeed * Time.deltaTime); 
-                        //Quaternion.LookRotation(new Vector3(myPlayerInput.MovementVector.x, 0, myPlayerInput.MovementVector.y));
+                if (angle > 5 || angle < -5)
+                {
+                    turnAmount = Mathf.SmoothDamp(turnAmount * Math.Sign(angle), Mathf.InverseLerp(0, rotateDeadzoneAngle, angle) * Math.Sign(angle), ref smoothVelocity, smoothTime) * Math.Sign(angle);
+                    //turnAmount = Mathf.InverseLerp(-rotateDeadzoneAngle, rotateDeadzoneAngle, angle);
+                }
+                else
+                {
+                    turnAmount = Mathf.SmoothDamp(turnAmount, 0, ref smoothVelocity, smoothTime);
+                }
             }
+            else
+            {
+                movementVelocity = 0;
+                //movementVelocity = Mathf.SmoothDamp(movementVelocity, 0, ref smoothVelocity, smoothTime/2);;
+                turnAmount = Mathf.SmoothDamp(turnAmount, 0, ref smoothVelocity, smoothTime);
+            }
+
         }
         
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.forward, transform.position + Vector3.forward);
-            Gizmos.DrawLine(transform.forward, inputVisualizer.visualizerIndicator.position - transform.position);
+            Gizmos.color = Color.green;
+            //Line beteen Player Front and inputVisualizer.indicator
+            Gizmos.DrawLine(pointA, pointB);
         }
     }
 }

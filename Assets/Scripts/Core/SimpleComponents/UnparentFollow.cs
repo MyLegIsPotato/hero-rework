@@ -15,6 +15,6 @@ namespace Project.Common.SimpleComponents
             transform.SetParent(null);
         }
 
-        void LateUpdate() => transform.position = parent.position;
+        void Update() => transform.position = parent.position;
     }
 }

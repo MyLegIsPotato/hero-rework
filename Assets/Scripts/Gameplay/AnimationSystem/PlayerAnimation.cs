@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Project.Core.Input;
+using TreeEditor;
+
 namespace Project.Gameplay.AnimationSystem
 {
     public class PlayerAnimation : MonoBehaviour
     {
+        private const string PLAYER_FORWARD_VELOCITY = "ForwardVelocity";
+        private const string PLAYER_TURN_AMOUNT = "TurnAmount";
+        
         private MyPlayerInput myPlayerInput;
         private PlayerMovement playerMovement;
         private Animator anim;
+        private float smoothedVelocity;
+        private float smoothingFactor = 1f;
         
         public void Setup(MyPlayerInput myPlayerInput, PlayerMovement playerMovement)
         {
@@ -23,9 +30,8 @@ namespace Project.Gameplay.AnimationSystem
         
         private void Update()
         {
-            anim.SetFloat("velx", myPlayerInput.MovementVector.x);
-            Debug.Log(playerMovement.movementVelocity);
-            anim.SetFloat("vely", playerMovement.movementVelocity);
+            anim.SetFloat(PLAYER_FORWARD_VELOCITY, playerMovement.movementVelocity);
+            anim.SetFloat(PLAYER_TURN_AMOUNT, playerMovement.turnAmount);
         }
     } 
 }

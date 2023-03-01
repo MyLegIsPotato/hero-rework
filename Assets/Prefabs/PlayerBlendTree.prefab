@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 2026330066035469011}
   - component: {fileID: 2026330066035468972}
   m_Layer: 0
-  m_Name: playerModel
+  m_Name: PlayerBlendTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,13 +764,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90cd3cdad436205468c0d2c4c01746a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 3
+  <Speed>k__BackingField: 0
   <DashSpeed>k__BackingField: 0
   <RotationSpeed>k__BackingField: 300
   inputDeadzone: 0.3
-  rotateDeadzoneAngle: 5
+  rotateDeadzoneAngle: 24
   inputVisualizer: {fileID: 7436258424217845761}
   movementVelocity: 0
+  turnAmount: 0
 --- !u!114 &2026330066035468972
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Project.Core.Input
 {
@@ -9,10 +10,13 @@ namespace Project.Core.Input
 
         private MyPlayerInput myPlayerInput;
 
+        [FormerlySerializedAs("visualizerBoxSize")] public Vector2 visualizerRadius;
+
         public void Setup(MyPlayerInput myPlayerInput)
         {
             this.myPlayerInput = myPlayerInput;
             myPlayerInput.OnMovementPerformed += UpdateVisualizer;
+            visualizerRadius = visualizerPlate.bounds.size/2;
         }
 
         private void OnDestroy()
