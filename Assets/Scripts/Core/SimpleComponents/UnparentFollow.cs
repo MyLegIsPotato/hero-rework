@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Project.Common.SimpleComponents
@@ -15,6 +16,10 @@ namespace Project.Common.SimpleComponents
             transform.SetParent(null);
         }
 
-        void Update() => transform.position = parent.position;
+        void Update()
+        {
+            if(parent != null)
+                transform.position = parent.position;
+        }
     }
 }

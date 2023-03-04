@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using System;
 using Project.Common.Extensions;
 
-namespace Project.Core.Input
+namespace Project.Core.InputSystem
 {
     public class MyPlayerInput : MonoBehaviour, GameplayActionMap.IPlayerMovementActions
     {

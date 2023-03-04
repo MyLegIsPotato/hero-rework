@@ -1,42 +1,41 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Project.Core.Input
+namespace Project.Core.InputSystem
 {
     public class InputVisualizer : MonoBehaviour
     {
         public Transform visualizerIndicator;
-        [SerializeField] private BoxCollider visualizerPlate;
+
+        [SerializeField]
+        private BoxCollider visualizerPlate;
+
+        public float visualizerRadius;
 
         private MyPlayerInput myPlayerInput;
 
-        [FormerlySerializedAs("visualizerBoxSize")] public Vector2 visualizerRadius;
+        public void OnEnable()
+        {
+            visualizerRadius = visualizerPlate.bounds.size.z / 2;
+        }
+
+        private void OnDestroy()
+        {
+            if (myPlayerInput != null) myPlayerInput.OnMovementPerformed -= UpdateVisualizer;
+        }
 
         public void Setup(MyPlayerInput myPlayerInput)
         {
             this.myPlayerInput = myPlayerInput;
             myPlayerInput.OnMovementPerformed += UpdateVisualizer;
-            visualizerRadius = visualizerPlate.bounds.size/2;
-        }
-
-        private void OnDestroy()
-        {
-            if (myPlayerInput != null)
-            {
-                myPlayerInput.OnMovementPerformed -= UpdateVisualizer;
-            }
         }
 
         private void UpdateVisualizer(Vector2 inputVector)
         {
-            if (visualizerIndicator == null || visualizerPlate == null)
-            {
-                return;
-            }
+            if (visualizerIndicator == null || visualizerPlate == null) return;
 
-            Vector3 localPosition = visualizerIndicator.localPosition;
-            localPosition.x = inputVector.x * visualizerPlate.bounds.size.x / 2;
-            localPosition.z = inputVector.y * visualizerPlate.bounds.size.z / 2;
+            var localPosition = visualizerIndicator.localPosition;
+            localPosition.x = inputVector.x * visualizerRadius;
+            localPosition.z = inputVector.y * visualizerRadius;
             visualizerIndicator.localPosition = localPosition;
         }
     }

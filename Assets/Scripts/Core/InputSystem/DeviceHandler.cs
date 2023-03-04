@@ -4,7 +4,7 @@ using System;
 using Project.Common.Patterns;
 using UnityEngine.InputSystem;
 
-namespace Project.Core.Input
+namespace Project.Core.InputSystem
 {
     public class DeviceHandler : Singleton<DeviceHandler>, JoiningActionMap.IJoinGameActions
     {

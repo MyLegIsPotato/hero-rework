@@ -1,5 +1,6 @@
 using Project.Common.Factory;
 using Project.Gameplay.AnimationSystem;
+using Project.Gameplay.MovementSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -9,7 +10,7 @@ namespace Project.Gameplay.PlayerSystem
     public class Player : MonoBehaviour, ISpawnable<Player>
     {
         [SerializeField]
-        private Project.Core.Input.MyPlayerInput myPlayerInput;
+        private Project.Core.InputSystem.MyPlayerInput myPlayerInput;
 
         [SerializeField]
         private PlayerMovement playerMovement;
