@@ -1,25 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour, IMovable
+namespace Project.Gameplay.MovementSystem
 {
-    public float Speed { get; }
-    public float DashSpeed { get; }
-    public float RotationSpeed { get; }
-    
-    public void Move(Vector2 direction)
+    public class EnemyMovement : MonoBehaviour, ISimpleMovable
     {
-        throw new System.NotImplementedException();
-    }
+        public float Speed { get; }
+        public float DashSpeed { get; }
+        public float RotationSpeed { get; }
 
-    public void Rotate(Vector2 direction)
-    {
-        throw new System.NotImplementedException();
-    }
+        public void Move(Vector2 direction)
+        {
+            throw new NotImplementedException();
+        }
 
-    public void Stop()
-    {
-        throw new System.NotImplementedException();
+        public void Rotate(Vector2 direction)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

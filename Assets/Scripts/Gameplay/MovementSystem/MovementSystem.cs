@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace Project.Gameplay.MovementSystem
 {
-    public abstract class MovementSystem : MonoBehaviour, IMovable
+    public abstract class MovementSystem : MonoBehaviour, ISimpleMovable
     {
+        private Vector3 movementVector;
+
         [field: SerializeField]
         public float Speed { get; private set; }
 
@@ -17,11 +16,9 @@ namespace Project.Gameplay.MovementSystem
         [field: SerializeField]
         public float RotationSpeed { get; private set; }
 
-        private Vector3 movementVector;
-
         public void Move(Vector2 direction)
         {
-
+            throw new NotImplementedException();
         }
 
         public void Rotate(Vector2 direction)

@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Project.Common.SimpleComponents
+namespace Project.Core.SimpleComponents
 {
     public class UnparentFollow : MonoBehaviour
     {
@@ -16,9 +12,9 @@ namespace Project.Common.SimpleComponents
             transform.SetParent(null);
         }
 
-        void Update()
+        private void Update()
         {
-            if(parent != null)
+            if (parent != null)
                 transform.position = parent.position;
         }
     }

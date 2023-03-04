@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5881cfd7f528044409b35733e70ed376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 2026330066035469009, guid: 86e219039711be3459d9e6b53b09a8a4,
+  playerPrefab: {fileID: 1368518729601865843, guid: bdeaa9953fd159a43bd266ef4e66a5e6,
     type: 3}
   defaultSpawnPoint: {fileID: 393934660}
 --- !u!1 &1538030505

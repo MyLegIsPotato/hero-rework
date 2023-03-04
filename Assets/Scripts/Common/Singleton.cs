@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Common.Patterns
+namespace Project.Common
 {
     [DisallowMultipleComponent]
     public class Singleton<T> : MonoBehaviour where T : Singleton<T>
