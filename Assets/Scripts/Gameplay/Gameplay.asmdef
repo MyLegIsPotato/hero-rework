@@ -1,6 +1,6 @@
 {
     "name": "Gameplay",
-    "rootNamespace": "",
+    "rootNamespace": "Project",
     "references": [
         "GUID:fd04ee86a81f4554dacbfcbfdd826bc8",
         "GUID:67b7605b99948b644b5f4e363409f555",

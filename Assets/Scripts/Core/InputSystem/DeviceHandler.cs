@@ -1,10 +1,10 @@
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-using Project.Common.Patterns;
+using System.Collections.Generic;
+using Project.Common;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Project.Core.Input
+namespace Project.Core.InputSystem
 {
     public class DeviceHandler : Singleton<DeviceHandler>, JoiningActionMap.IJoinGameActions
     {
@@ -19,46 +19,46 @@ namespace Project.Core.Input
 
         [SerializeField]
         private PlayerInput playerInputHandlerPrefab;
-        
+
         public void Initialize()
         {
             InitializeMaps();
             InitializeActions();
-        }   
-        
+        }
+
         private void InitializeActions()
         {
-            OnDeviceJoined = delegate(PlayerInput device) { };
-            OnDeviceDisconnected = delegate(PlayerInput device) { };
+            OnDeviceJoined = delegate { };
+            OnDeviceDisconnected = delegate { };
         }
 
         private void InitializeMaps()
         {
             playerInputs = new List<PlayerInput>();
             joinedDevices = new List<InputDevice>();
-            JoiningActionMap joinActionMap = new JoiningActionMap();
+            var joinActionMap = new JoiningActionMap();
             joinActionMap.JoinGame.SetCallbacks(this);
             joinActionMap.Enable();
         }
-        
+
         public void OnJoinGame(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if(joinedDevices.Contains(context.control.device))
+                if (joinedDevices.Contains(context.control.device))
                     return;
 
-                AddNewPlayerByDevice(context);
+                AddNewPlayerByDevice(context.control.device);
             }
         }
 
-        private void AddNewPlayerByDevice(InputAction.CallbackContext context)
+        private void AddNewPlayerByDevice(InputDevice device)
         {
             playerInputManager.playerPrefab = playerInputHandlerPrefab.gameObject;
-            PlayerInput newPlayerInput =
-                playerInputManager.JoinPlayer(playerInputs.Count, playerInputs.Count, "KBM", context.control.device);
+            var newPlayerInput =
+                playerInputManager.JoinPlayer(playerInputs.Count, playerInputs.Count, "KBM", device);
             playerInputs.Add(newPlayerInput);
-            joinedDevices.Add(context.control.device);
+            joinedDevices.Add(device);
             OnDeviceJoined?.Invoke(newPlayerInput);
         }
     }
