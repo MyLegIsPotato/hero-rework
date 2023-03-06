@@ -8,7 +8,6 @@ namespace Project.Gameplay.Skills
         public override void UseSkill()
         {
             base.UseSkill();
-            Debug.Log("Zone Damage!");
         }
     }
 }

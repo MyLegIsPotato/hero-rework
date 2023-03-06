@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PassiveElectricZone
   m_EditorClassIdentifier: 
   Duration: 0
-  Cooldown: 0.1
+  Cooldown: 0.5
   EffectiveRange: 5
   Damage: 2
   ProjectileSpeed: 0
   AutoAttack: 1
   SkillSounds: []
-  SkillColor: {r: 0.093022406, g: 0.48127288, b: 0.735849, a: 0}
+  SkillColor: {r: 0.093022406, g: 0.48127288, b: 0.735849, a: 0.9529412}
   SkillIcon: {fileID: 21300000, guid: 151856ede3fd5e948ad72abe499d20c7, type: 3}
-  SkillBackground: {r: 0.09142043, g: 0.22882943, b: 0.4528302, a: 0}
+  SkillBackground: {r: 0.09142043, g: 0.22882943, b: 0.4528302, a: 0.94509804}

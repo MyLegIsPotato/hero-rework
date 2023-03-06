@@ -8,6 +8,7 @@ namespace Project.Core.SkillSystem
     {
         public SkillDisplay skillDisplay;
 
+        private List<Skill> skills = new List<Skill>();
         public Skill NorthSkill;
         public Skill SouthSkill;
         public Skill EastSkill;
@@ -16,16 +17,29 @@ namespace Project.Core.SkillSystem
         public void Setup(SkillDisplay display)
         {
             skillDisplay = display;
+            //Make a copy of the skills
             NorthSkill = Instantiate(NorthSkill, skillDisplay.transform);
-            NorthSkill.ActivateSkill();
+            NorthSkill.AssignedSlot = SkillSlot.North;
             SouthSkill = Instantiate(SouthSkill, skillDisplay.transform);
-            SouthSkill.ActivateSkill();
+            SouthSkill.AssignedSlot = SkillSlot.South;
             EastSkill = Instantiate(EastSkill, skillDisplay.transform);
-            EastSkill.ActivateSkill();
+            EastSkill.AssignedSlot = SkillSlot.East;
             WestSkill = Instantiate(WestSkill, skillDisplay.transform);
-            WestSkill.ActivateSkill();
+            WestSkill.AssignedSlot = SkillSlot.West;
+            
+            //Collect them in a list
+            skills.Add(NorthSkill);
+            skills.Add(SouthSkill);
+            skills.Add(EastSkill);
+            skills.Add(WestSkill);
+
+            foreach (var skill in skills)
+                skill.ActivateSkill();
             
             skillDisplay.Setup(this);
+            
+            foreach (var skill in skills)
+                skillDisplay.SetSkillColors(skill.AssignedSlot, skill.skillSettings.SkillColor, skill.skillSettings.SkillBackground);
         }
         
         public void Update()

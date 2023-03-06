@@ -1424,7 +1424,7 @@ MonoBehaviour:
   myPlayerInput: {fileID: 6938882341215488573}
   playerMovement: {fileID: 4847474970383992854}
   playerAnimation: {fileID: 5604022552604305398}
-  skillset: {fileID: 0}
+  skillset: {fileID: 273748917082382486}
 --- !u!114 &6938882341215488573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,9 +1490,9 @@ MonoBehaviour:
     type: 3}
   SouthSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
     type: 3}
-  EastSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
+  EastSkill: {fileID: 3430651656058948569, guid: 0513a7db7336b06419cb8e2cc4198262,
     type: 3}
-  WestSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
+  WestSkill: {fileID: 3766025939916627449, guid: 32c8b695410a7004e9dafe0033f20f22,
     type: 3}
 --- !u!95 &2611485207567759075
 Animator:

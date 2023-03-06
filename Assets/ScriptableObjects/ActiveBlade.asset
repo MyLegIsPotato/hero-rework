@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ActiveBlade
   m_EditorClassIdentifier: 
   Duration: 0
-  Cooldown: 0.5
+  Cooldown: 3
   EffectiveRange: 2
   Damage: 10
   ProjectileSpeed: 0
-  AutoAttack: 0
+  AutoAttack: 1
   SkillSounds: []
-  SkillColor: {r: 0.9245283, g: 0.37841976, b: 0.23025985, a: 0}
+  SkillColor: {r: 0.9245283, g: 0.37841976, b: 0.23025985, a: 0.9529412}
   SkillIcon: {fileID: 21300000, guid: dedf8ac7db6e81f4ba5e497d816b1152, type: 3}
-  SkillBackground: {r: 0.7169812, g: 0.21238874, b: 0.21238874, a: 0}
+  SkillBackground: {r: 0.7169812, g: 0.21238874, b: 0.21238874, a: 0.8666667}

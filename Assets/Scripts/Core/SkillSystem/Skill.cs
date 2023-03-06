@@ -12,6 +12,8 @@ namespace Project.Core.SkillSystem
         public Timer skillTimer;
 
         public Action<float> OnRechargeUpdated;
+
+        public SkillSlot AssignedSlot;
         
         public void ActivateSkill()
         {
