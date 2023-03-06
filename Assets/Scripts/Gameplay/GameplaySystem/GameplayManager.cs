@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Project.Common;
 using Project.Core.InputSystem;
+using Project.Core.SkillSystem;
 using Project.Gameplay.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Project.Gameplay.GameplaySystem
 {
@@ -14,7 +16,13 @@ namespace Project.Gameplay.GameplaySystem
 
         [SerializeField]
         private Transform defaultSpawnPoint;
-
+        
+        
+        [Space(10f), SerializeField]
+        private SkillDisplay skillDisplayPrefab;
+        [SerializeField]
+        private HorizontalLayoutGroup skillSetTarget;
+        
         private PlayerFactory playerFactory;
 
         private readonly Dictionary<PlayerInput, Player> players = new();
@@ -48,7 +56,10 @@ namespace Project.Gameplay.GameplaySystem
         {
             var newPlayer = playerFactory.Spawn(playerPrefab);
             players.Add(playerInput, newPlayer);
+            var skillSet = newPlayer.GetComponent<Skillset>();
+            var skillDisplay = Instantiate(skillDisplayPrefab, skillSetTarget.transform);
             newPlayer.Setup(playerInput);
+            skillSet.Setup(skillDisplay);
             return newPlayer;
         }
 

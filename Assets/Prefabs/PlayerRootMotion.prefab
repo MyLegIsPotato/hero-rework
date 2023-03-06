@@ -1380,6 +1380,7 @@ GameObject:
   - component: {fileID: 6938882341215488573}
   - component: {fileID: 4847474970383992854}
   - component: {fileID: 5604022552604305398}
+  - component: {fileID: 273748917082382486}
   - component: {fileID: 2611485207567759075}
   - component: {fileID: 2993391146429384948}
   - component: {fileID: 6368165412539158988}
@@ -1423,6 +1424,7 @@ MonoBehaviour:
   myPlayerInput: {fileID: 6938882341215488573}
   playerMovement: {fileID: 4847474970383992854}
   playerAnimation: {fileID: 5604022552604305398}
+  skillset: {fileID: 0}
 --- !u!114 &6938882341215488573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,6 +1473,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.4
   playerAnimator: {fileID: 2611485207567759075}
+--- !u!114 &273748917082382486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866725954130677415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0220ff8c12f6f9148b863caee8f1d5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDisplay: {fileID: 0}
+  NorthSkill: {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010,
+    type: 3}
+  SouthSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
+    type: 3}
+  EastSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
+    type: 3}
+  WestSkill: {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3,
+    type: 3}
 --- !u!95 &2611485207567759075
 Animator:
   serializedVersion: 5

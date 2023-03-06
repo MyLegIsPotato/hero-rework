@@ -1,5 +1,6 @@
 using Project.Common.Factory;
 using Project.Core.InputSystem;
+using Project.Core.SkillSystem;
 using Project.Gameplay.AnimationSystem;
 using Project.Gameplay.MovementSystem;
 using UnityEngine;
@@ -17,6 +18,9 @@ namespace Project.Gameplay.PlayerSystem
 
         [SerializeField]
         private PlayerAnimation playerAnimation;
+        
+        [SerializeField] //TODO: Change to PlayerSkillset and abstract the class
+        private Skillset skillset;
 
         /// <summary>
         ///     Instantiates a new player at the given spawn point.
