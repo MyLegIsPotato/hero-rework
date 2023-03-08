@@ -1,3 +1,4 @@
+using System;
 using Project.Common.Factory;
 using Project.Core.InputSystem;
 using Project.Core.SkillSystem;
@@ -19,9 +20,14 @@ namespace Project.Gameplay.PlayerSystem
         [SerializeField]
         private PlayerAnimation playerAnimation;
         
-        [SerializeField] //TODO: Change to PlayerSkillset and abstract the class
-        private Skillset skillset;
-
+        [SerializeField]
+        private Skillset passiveSkillset;
+        [SerializeField]
+        private Skillset activeSkillset;
+        
+        public Skillset PassiveSkillset => passiveSkillset;
+        public Skillset ActiveSkillset => activeSkillset;
+        
         /// <summary>
         ///     Instantiates a new player at the given spawn point.
         /// </summary>

@@ -3,6 +3,7 @@ using Project.Common;
 using Project.Core.InputSystem;
 using Project.Core.SkillSystem;
 using Project.Gameplay.PlayerSystem;
+using Project.Gameplay.SkillSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -21,7 +22,9 @@ namespace Project.Gameplay.GameplaySystem
         [Space(10f), SerializeField]
         private SkillDisplay skillDisplayPrefab;
         [SerializeField]
-        private HorizontalLayoutGroup skillSetTarget;
+        private LayoutGroup passiveSkillSetTarget;
+        [SerializeField]
+        private LayoutGroup activeSkillSetTarget;
         
         private PlayerFactory playerFactory;
 
@@ -56,10 +59,10 @@ namespace Project.Gameplay.GameplaySystem
         {
             var newPlayer = playerFactory.Spawn(playerPrefab);
             players.Add(playerInput, newPlayer);
-            var skillSet = newPlayer.GetComponent<Skillset>();
-            var skillDisplay = Instantiate(skillDisplayPrefab, skillSetTarget.transform);
+            var skillsetController = newPlayer.GetComponent<SkillsetController>();
             newPlayer.Setup(playerInput);
-            skillSet.Setup(skillDisplay);
+            skillsetController.Setup(newPlayer, passiveSkillSetTarget, activeSkillSetTarget);
+
             return newPlayer;
         }
 

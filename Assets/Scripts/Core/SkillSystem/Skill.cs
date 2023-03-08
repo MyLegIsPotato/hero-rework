@@ -14,6 +14,7 @@ namespace Project.Core.SkillSystem
         public Action<float> OnRechargeUpdated;
 
         public SkillSlot AssignedSlot;
+        public int SkillIndex;
         
         public void ActivateSkill()
         {
@@ -23,6 +24,12 @@ namespace Project.Core.SkillSystem
 
             skillTimer.OnTimerUpdated += (fraction) => OnRechargeUpdated.Invoke(fraction);
             RechargeFraction = 0;
+        }
+        
+        public void DeactivateSkill()
+        {
+            skillTimer.OnTimerUpdated -= (fraction) => OnRechargeUpdated.Invoke(fraction);
+            skillTimer.OnTimerFinished -= UseSkill;
         }
         
         public void OnDestroy()

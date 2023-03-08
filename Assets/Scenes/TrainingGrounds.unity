@@ -1263,7 +1263,8 @@ MonoBehaviour:
   defaultSpawnPoint: {fileID: 393934660}
   skillDisplayPrefab: {fileID: 822839872865342375, guid: c69dd2e8b1a0c3047bc302ed511ec3a9,
     type: 3}
-  skillSetTarget: {fileID: 2056300552}
+  passiveSkillSetTarget: {fileID: 2056300553}
+  activeSkillSetTarget: {fileID: 2056300552}
 --- !u!1 &1395564464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2087,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897991658391272864, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897991658391272864, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897991658391272864, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_Spacing
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+        type: 3}
+      propertyPath: m_ChildForceExpandHeight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5687632351249924079, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
@@ -2203,14 +2244,26 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 7c9c611c2f93f8345a0363bbda7eb40f, type: 3}
 --- !u!114 &2056300552 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3935258674321353174, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+  m_CorrespondingSourceObject: {fileID: 796661371791322626, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
     type: 3}
   m_PrefabInstance: {fileID: 2056300551}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2056300553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5808631804118258109, guid: 7c9c611c2f93f8345a0363bbda7eb40f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2056300551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2099762691

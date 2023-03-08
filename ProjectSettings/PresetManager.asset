@@ -14,3 +14,7 @@ PresetManager:
         type: 2}
       m_Filter: 'glob: "**/**.psd"'
       m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: f196de277fcc5424386eb764ab46d244,
+        type: 2}
+      m_Filter: 'glob: "**/**.png"'
+      m_Disabled: 0

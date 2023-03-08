@@ -1,7 +1,6 @@
 using Project.Core.SkillSystem;
-using UnityEngine;
 
-namespace Project.Gameplay.Skills
+namespace Project.Gameplay.SkillSystem.Skills
 {
     public class SkillElectricZone : Skill
     {

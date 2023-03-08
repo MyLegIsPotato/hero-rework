@@ -1,14 +1,14 @@
 using Project.Core.SkillSystem;
 using UnityEngine;
 
-namespace Project.Gameplay.Skills
+namespace Project.Gameplay.SkillSystem.Skills
 {
-    public class SkillSlash : Skill
+    public class SkillBlade : Skill
     {
         public override void UseSkill()
         {
             base.UseSkill();
-            Debug.Log("Slash");
+            Debug.Log("Blade!");
         }
     }
 }

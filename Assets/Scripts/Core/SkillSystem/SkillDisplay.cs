@@ -8,28 +8,13 @@ namespace Project.Core.SkillSystem
         public const float FILL_AMOUNT = 0.25f;
 
         [SerializeField]
-        private Image northFill;
+        private Image[] fillImages;
 
         [SerializeField]
-        private Image northSkillImage;
-
+        private Image[] skillImages;
+        
         [SerializeField]
-        private Image southFill;
-
-        [SerializeField]
-        private Image southSkillImage;
-
-        [SerializeField]
-        private Image eastFill;
-
-        [SerializeField]
-        private Image eastSkillImage;
-
-        [SerializeField]
-        private Image westFill;
-
-        [SerializeField]
-        private Image westSkillImage;
+        private Image[] backgrounds;
 
         private Skillset skillset;
 
@@ -37,22 +22,7 @@ namespace Project.Core.SkillSystem
         {
             Debug.Log("Setting up skill display");
             this.skillset = skillset;
-
-            northSkillImage.sprite = this.skillset.NorthSkill.skillSettings.SkillIcon;
-            northFill.fillAmount = 0;
-            skillset.NorthSkill.OnRechargeUpdated += fraction => UpdateFillImage(fraction, northFill);
-
-            southSkillImage.sprite = this.skillset.SouthSkill.skillSettings.SkillIcon;
-            southFill.fillAmount = 0;
-            skillset.SouthSkill.OnRechargeUpdated += fraction => UpdateFillImage(fraction, southFill);
-
-            eastSkillImage.sprite = this.skillset.EastSkill.skillSettings.SkillIcon;
-            eastFill.fillAmount = 0;
-            skillset.EastSkill.OnRechargeUpdated += fraction => UpdateFillImage(fraction, eastFill);
-
-            westSkillImage.sprite = this.skillset.WestSkill.skillSettings.SkillIcon;
-            westFill.fillAmount = 0;
-            skillset.WestSkill.OnRechargeUpdated += fraction => UpdateFillImage(fraction, westFill);
+            this.skillset.OnSkillSlotUpdated += SetSkillAppearence;
         }
 
         public void UpdateFillImage(float fraction, Image image)
@@ -60,30 +30,21 @@ namespace Project.Core.SkillSystem
             image.fillAmount = fraction * FILL_AMOUNT;
         }
 
-        public void SetSkillColors(SkillSlot slot, Color skillColor, Color backgroundColor)
+        public void SetSkillAppearence(int slotIndex, Skill skill)
         {
-            switch (slot)
+            if (slotIndex < 0 || slotIndex >= fillImages.Length)
             {
-                case SkillSlot.North:
-                    northFill.color = backgroundColor;
-                    northSkillImage.color = skillColor;
-                    break;
-                case SkillSlot.South:
-                    southFill.color = backgroundColor;
-                    southSkillImage.color = skillColor;
-                    break;
-                case SkillSlot.East:
-                    eastFill.color = backgroundColor;
-                    eastSkillImage.color = skillColor;
-                    break;
-                case SkillSlot.West:
-                    westFill.color = backgroundColor;
-                    westSkillImage.color = skillColor;
-                    break;
-                default:
-                    Debug.LogError("Skill slot out of range");
-                    break;
+                Debug.LogError("Skill slot out of range");
+                return;
             }
+            
+            skillImages[slotIndex].sprite = skillset.Skills[slotIndex].skillSettings.SkillIcon;
+            fillImages[slotIndex].fillAmount = 0;
+            skillset.Skills[slotIndex].OnRechargeUpdated += fraction => UpdateFillImage(fraction, fillImages[slotIndex]);
+            
+            fillImages[slotIndex].color = skill.skillSettings.SkillColor;
+            //backgrounds[slotIndex].color = backgroundColor;
+            //skillImages[slotIndex].color = skillColor;
         }
     }
 }
