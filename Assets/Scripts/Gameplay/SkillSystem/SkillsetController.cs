@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Project.Core.InputSystem;
 using Project.Core.SkillSystem;
 using Project.Gameplay.PlayerSystem;
 using UnityEngine;
@@ -12,35 +14,32 @@ namespace Project.Gameplay.SkillSystem
         private SkillDisplay passiveSkillDisplayPrefab;
         [SerializeField]
         private SkillDisplay activeSkillDisplayPrefab;
-
         [SerializeField]
         private List<Skill> startingPassiveSkills;
-
         [SerializeField]
         private List<Skill> startingActiveSkills;
         
         public Skillset passiveSkillset;
         public Skillset activeSkillset;
+        
+        private MyPlayerInput myPlayerInput;
+        private Vector2 previousSkillSelection;
 
-        private SkillDisplay passiveSkillDisplay;
-        private SkillDisplay activeSkillDisplay;
-
-        public void Setup(Player player, LayoutGroup passiveSkillSetTarget, LayoutGroup activeSkillSetTarget)
+        public void SetupPlayer(MyPlayerInput playerInput, Skillset playerPassiveSkillset, Skillset playerActiveSkillset)
         {
-            passiveSkillset = player.PassiveSkillset;
-            activeSkillset = player.ActiveSkillset;
-
-            passiveSkillDisplay = Instantiate(passiveSkillDisplayPrefab, passiveSkillSetTarget.transform);
-            passiveSkillDisplay.Setup(passiveSkillset);
- 
-            activeSkillDisplay = Instantiate(activeSkillDisplayPrefab, activeSkillSetTarget.transform);
-            activeSkillDisplay.Setup(activeSkillset);
-            
-            AssignStartingSkills();
+            myPlayerInput = playerInput;
+            passiveSkillset = playerPassiveSkillset;
+            activeSkillset = playerActiveSkillset;
         }
         
-        public void AssignStartingSkills()
+        public void SetupDisplays(LayoutGroup passiveSkillSetTarget, LayoutGroup activeSkillSetTarget)
         {
+            SkillDisplay passiveSkillDisplay = Instantiate(passiveSkillDisplayPrefab, passiveSkillSetTarget.transform);
+            passiveSkillset.Setup(passiveSkillDisplay);
+
+            SkillDisplay activeSkillDisplay = Instantiate(activeSkillDisplayPrefab, activeSkillSetTarget.transform);
+            activeSkillset.Setup(activeSkillDisplay, myPlayerInput);
+            
             passiveSkillset.AssignSkills(startingPassiveSkills);
             activeSkillset.AssignSkills(startingActiveSkills);
         }

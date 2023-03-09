@@ -16,35 +16,49 @@ namespace Project.Core.SkillSystem
         [SerializeField]
         private Image[] backgrounds;
 
-        private Skillset skillset;
-
-        public void Setup(Skillset skillset)
+        [SerializeField]
+        private Image[] indicators;
+        
+        private RectTransform skillDebugIndicator;
+        
+        public void UpdateFillImage(int slotIndex, float fraction)
         {
-            Debug.Log("Setting up skill display");
-            this.skillset = skillset;
-            this.skillset.OnSkillSlotUpdated += SetSkillAppearence;
-        }
-
-        public void UpdateFillImage(float fraction, Image image)
-        {
-            image.fillAmount = fraction * FILL_AMOUNT;
+            fillImages[slotIndex].fillAmount = fraction * FILL_AMOUNT;
         }
 
         public void SetSkillAppearence(int slotIndex, Skill skill)
         {
-            if (slotIndex < 0 || slotIndex >= fillImages.Length)
+            if (skill == null)
             {
-                Debug.LogError("Skill slot out of range");
+                HideSlotIcon(slotIndex);
                 return;
             }
             
-            skillImages[slotIndex].sprite = skillset.Skills[slotIndex].skillSettings.SkillIcon;
-            fillImages[slotIndex].fillAmount = 0;
-            skillset.Skills[slotIndex].OnRechargeUpdated += fraction => UpdateFillImage(fraction, fillImages[slotIndex]);
-            
+            skillImages[slotIndex].color = Color.white;
             fillImages[slotIndex].color = skill.skillSettings.SkillColor;
-            //backgrounds[slotIndex].color = backgroundColor;
-            //skillImages[slotIndex].color = skillColor;
+            skillImages[slotIndex].sprite = skill.skillSettings.SkillIcon;
+        }
+        
+        public void SetIndicatorVisibility(int slotIndex)
+        {
+            for (int i = 0; i < indicators.Length; i++)
+            {
+                if(i == slotIndex)
+                    indicators[i].gameObject.SetActive(true);
+                else
+                    indicators[i].gameObject.SetActive(false);
+            }
+        }
+
+        public void HideSlotIcon(int slotIndex)
+        {
+            skillImages[slotIndex].color = Color.clear;
+            fillImages[slotIndex].color = Color.clear;
+        }
+
+        private void SetDebugIndicatorPosition(Vector2 newPosition)
+        {
+            skillDebugIndicator.anchoredPosition = newPosition;
         }
     }
 }

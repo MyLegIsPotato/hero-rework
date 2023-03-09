@@ -11,24 +11,25 @@ namespace Project.Core.SkillSystem
         public SkillSettings skillSettings;
         public Timer skillTimer;
 
-        public Action<float> OnRechargeUpdated;
+        public event Action<int, float> OnRechargeUpdated;
+        public event Action<int> OnSkillSelected;
 
         public SkillSlot AssignedSlot;
         public int SkillIndex;
-        
+
         public void ActivateSkill()
         {
             skillTimer = new Timer(skillSettings.Cooldown, skillSettings.AutoAttack);
             if(skillSettings.AutoAttack)
                 skillTimer.OnTimerFinished += UseSkill;
 
-            skillTimer.OnTimerUpdated += (fraction) => OnRechargeUpdated.Invoke(fraction);
+            skillTimer.OnTimerUpdated += (fraction) => OnRechargeUpdated?.Invoke(SkillIndex, fraction);
             RechargeFraction = 0;
         }
         
         public void DeactivateSkill()
         {
-            skillTimer.OnTimerUpdated -= (fraction) => OnRechargeUpdated.Invoke(fraction);
+            skillTimer.OnTimerUpdated = null;
             skillTimer.OnTimerFinished -= UseSkill;
         }
         
@@ -42,13 +43,6 @@ namespace Project.Core.SkillSystem
             skillTimer.UpdateTimer(Time.deltaTime);
         }
 
-        public virtual void UseSkill()
-        {
-            if(skillTimer.TimeToFinish > 0)
-               return;
-            
-            Debug.Log("Skill used");
-            skillTimer.Reset();
-        }
+        public abstract void UseSkill();
     }
 }

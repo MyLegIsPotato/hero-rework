@@ -1,4 +1,5 @@
 using Project.Core.SkillSystem;
+using UnityEngine;
 
 namespace Project.Gameplay.SkillSystem.Skills
 {
@@ -6,7 +7,11 @@ namespace Project.Gameplay.SkillSystem.Skills
     {
         public override void UseSkill()
         {
-            base.UseSkill();
+            if(skillTimer.TimeToFinish > 0)
+                return;
+            skillTimer.Reset();
+                
+            Debug.Log("Electric Zone!");
         }
     }
 }

@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Project.Gameplay.SkillSystem.Skills
 {
-    public class SkillBlade : Skill
+    public class SkillSpin : Skill
     {
         public override void UseSkill()
         {
-            base.UseSkill();
-            Debug.Log("Blade!");
+            if(skillTimer.TimeToFinish > 0)
+                return;
+            skillTimer.Reset();
+            Debug.Log("Spin!");
         }
     }
 }

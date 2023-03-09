@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1784948492142567043}
   - component: {fileID: 4630170077678409589}
   m_Layer: 0
-  m_Name: SkillBlade
+  m_Name: SkillSpin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

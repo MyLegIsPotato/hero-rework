@@ -111,16 +111,189 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
             ""id"": ""f3a12932-58ef-459a-9281-94b9eb83c546"",
             ""actions"": [
                 {
-                    ""name"": ""ActivateSkill"",
+                    ""name"": ""SelectSkill"",
+                    ""type"": ""Value"",
+                    ""id"": ""095fce3f-4cf1-4206-9f60-4f87703dd042"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ActivateSkillOnSelection"",
                     ""type"": ""Button"",
                     ""id"": ""90c74130-88f9-4c4e-9f3e-87a285562b12"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": "" ActivateSkillOnPress"",
+                    ""type"": ""Value"",
+                    ""id"": ""4016d372-bea5-450f-a175-359f762c8dcb"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
-            ""bindings"": []
+            ""bindings"": [
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""aa11b254-7e44-4385-8a19-057f2e534e05"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1c9582b3-a4f6-4101-9100-41191dd7685d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""232f2600-161e-4f01-8246-7a6a661e3554"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fa9cb44f-f628-427d-8bb8-4909a8db5de1"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1eff6333-a9b1-49b0-b049-2e4fda78c447"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""GamepadButtons"",
+                    ""id"": ""f5f95cc9-1d0e-4880-8481-3c4515be653e"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""82f7f806-4808-4009-b27b-b9b708d3c966"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b90152ed-e8aa-4d8c-a9ae-369de3377249"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ceefd5cb-98d9-4265-8e25-7739e7987b40"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""202f4a11-54fe-4fed-9013-ee86a8aaa68b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": "" ActivateSkillOnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cdd240c-778c-4849-94e7-0d0764277db8"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""ActivateSkillOnSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""727be513-310b-4f20-b088-324cf63988ab"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ActivateSkillOnSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78597fe3-0bb9-4920-9c22-ecca33d7ac78"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SelectSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b493ca2a-83f1-4b75-8f14-33e873ad1137"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""SelectSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -158,7 +331,9 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
         // PlayerAttack
         m_PlayerAttack = asset.FindActionMap("PlayerAttack", throwIfNotFound: true);
-        m_PlayerAttack_ActivateSkill = m_PlayerAttack.FindAction("ActivateSkill", throwIfNotFound: true);
+        m_PlayerAttack_SelectSkill = m_PlayerAttack.FindAction("SelectSkill", throwIfNotFound: true);
+        m_PlayerAttack_ActivateSkillOnSelection = m_PlayerAttack.FindAction("ActivateSkillOnSelection", throwIfNotFound: true);
+        m_PlayerAttack_ActivateSkillOnPress = m_PlayerAttack.FindAction(" ActivateSkillOnPress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,12 +426,16 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
     // PlayerAttack
     private readonly InputActionMap m_PlayerAttack;
     private IPlayerAttackActions m_PlayerAttackActionsCallbackInterface;
-    private readonly InputAction m_PlayerAttack_ActivateSkill;
+    private readonly InputAction m_PlayerAttack_SelectSkill;
+    private readonly InputAction m_PlayerAttack_ActivateSkillOnSelection;
+    private readonly InputAction m_PlayerAttack_ActivateSkillOnPress;
     public struct PlayerAttackActions
     {
         private @GameplayActionMap m_Wrapper;
         public PlayerAttackActions(@GameplayActionMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ActivateSkill => m_Wrapper.m_PlayerAttack_ActivateSkill;
+        public InputAction @SelectSkill => m_Wrapper.m_PlayerAttack_SelectSkill;
+        public InputAction @ActivateSkillOnSelection => m_Wrapper.m_PlayerAttack_ActivateSkillOnSelection;
+        public InputAction @ActivateSkillOnPress => m_Wrapper.m_PlayerAttack_ActivateSkillOnPress;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAttack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -266,16 +445,28 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerAttackActionsCallbackInterface != null)
             {
-                @ActivateSkill.started -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkill;
-                @ActivateSkill.performed -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkill;
-                @ActivateSkill.canceled -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkill;
+                @SelectSkill.started -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnSelectSkill;
+                @SelectSkill.performed -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnSelectSkill;
+                @SelectSkill.canceled -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnSelectSkill;
+                @ActivateSkillOnSelection.started -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnSelection;
+                @ActivateSkillOnSelection.performed -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnSelection;
+                @ActivateSkillOnSelection.canceled -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnSelection;
+                @ActivateSkillOnPress.started -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnPress;
+                @ActivateSkillOnPress.performed -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnPress;
+                @ActivateSkillOnPress.canceled -= m_Wrapper.m_PlayerAttackActionsCallbackInterface.OnActivateSkillOnPress;
             }
             m_Wrapper.m_PlayerAttackActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ActivateSkill.started += instance.OnActivateSkill;
-                @ActivateSkill.performed += instance.OnActivateSkill;
-                @ActivateSkill.canceled += instance.OnActivateSkill;
+                @SelectSkill.started += instance.OnSelectSkill;
+                @SelectSkill.performed += instance.OnSelectSkill;
+                @SelectSkill.canceled += instance.OnSelectSkill;
+                @ActivateSkillOnSelection.started += instance.OnActivateSkillOnSelection;
+                @ActivateSkillOnSelection.performed += instance.OnActivateSkillOnSelection;
+                @ActivateSkillOnSelection.canceled += instance.OnActivateSkillOnSelection;
+                @ActivateSkillOnPress.started += instance.OnActivateSkillOnPress;
+                @ActivateSkillOnPress.performed += instance.OnActivateSkillOnPress;
+                @ActivateSkillOnPress.canceled += instance.OnActivateSkillOnPress;
             }
         }
     }
@@ -304,6 +495,8 @@ public partial class @GameplayActionMap : IInputActionCollection2, IDisposable
     }
     public interface IPlayerAttackActions
     {
-        void OnActivateSkill(InputAction.CallbackContext context);
+        void OnSelectSkill(InputAction.CallbackContext context);
+        void OnActivateSkillOnSelection(InputAction.CallbackContext context);
+        void OnActivateSkillOnPress(InputAction.CallbackContext context);
     }
 }

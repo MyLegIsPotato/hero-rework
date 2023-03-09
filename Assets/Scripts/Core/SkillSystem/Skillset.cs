@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Project.Core.InputSystem;
 using UnityEngine;
 
 namespace Project.Core.SkillSystem
@@ -9,18 +10,30 @@ namespace Project.Core.SkillSystem
         public const int MAX_SKILL_SLOTS = 4;
         
         private List<Skill> skills = new List<Skill>(MAX_SKILL_SLOTS);
-
+        private MyPlayerInput playerInput;
         public List<Skill> Skills => skills;
-        public event Action<int, Skill> OnSkillSlotUpdated;
+        public SkillDisplay SkillDisplay { get; private set; }
 
-        public void UseSkill(Skill skill)
+        //For active skillset
+        public void Setup(SkillDisplay skillDisplay, MyPlayerInput playerInput)
         {
-            if (skill == null || !skills.Contains(skill))
-            {
-                return;
-            }
+            this.SkillDisplay = skillDisplay;
+            this.playerInput = playerInput;
+            this.playerInput.OnSkillSlotActivated += OnSkillSlotActivated;
+        }
+        
+        //For passive skillset
+        public void Setup(SkillDisplay skillDisplay)
+        {
+            this.SkillDisplay = skillDisplay;
+        }
 
-            skill.UseSkill();
+        private void OnSkillSlotActivated(int skillIndex)
+        {
+            if (skillIndex >= skills.Count)
+                return;
+            
+            skills[skillIndex].UseSkill();
         }
 
         public void AssignSkills(List<Skill> startingSkills)
@@ -35,7 +48,7 @@ namespace Project.Core.SkillSystem
             {
                 if (i >= skills.Count || skills[i] == null)
                 {
-                    skills.Insert(i, startingSkills[i]);
+                    skills.Insert(i, Instantiate(startingSkills[i]));
                     if(skills[i] == null)
                         continue;
                 }
@@ -46,7 +59,10 @@ namespace Project.Core.SkillSystem
 
                 skills[i].AssignedSlot = (SkillSlot)i;
                 skills[i].SkillIndex = i;
-                OnSkillSlotUpdated?.Invoke(skills[i].SkillIndex, skills[i]);
+                skills[i].OnRechargeUpdated += SkillDisplay.UpdateFillImage;
+                skills[i].ActivateSkill();
+                SkillDisplay.SetSkillAppearence(i, Skills[i]);
+                SkillDisplay.UpdateFillImage(i, 0f);
             }
 
             // De-activate any unused slots

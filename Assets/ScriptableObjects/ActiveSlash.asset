@@ -17,7 +17,7 @@ MonoBehaviour:
   EffectiveRange: 3
   Damage: 30
   ProjectileSpeed: 0
-  AutoAttack: 1
+  AutoAttack: 0
   SkillSounds: []
   SkillColor: {r: 0.83137256, g: 0.3370958, b: 0.27843136, a: 0.16470589}
   SkillIcon: {fileID: 21300000, guid: a2e6fad79fa605f47bce184794267f09, type: 3}

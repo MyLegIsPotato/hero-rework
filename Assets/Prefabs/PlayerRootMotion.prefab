@@ -1426,6 +1426,7 @@ MonoBehaviour:
   myPlayerInput: {fileID: 6938882341215488573}
   playerMovement: {fileID: 4847474970383992854}
   playerAnimation: {fileID: 5604022552604305398}
+  skillsetController: {fileID: 3804538630449825934}
   passiveSkillset: {fileID: 7583194764638421035}
   activeSkillset: {fileID: 632886800617185851}
 --- !u!114 &6938882341215488573
@@ -1442,7 +1443,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveActionReference: {fileID: -3786998323890442104, guid: 42028e7b805c44c4ea8defb9aab3deaa,
     type: 3}
-  attackActionReference: {fileID: -2788654155583069134, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+  activateSkillOnSelectionReference: {fileID: -2788654155583069134, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+    type: 3}
+  selectSkillActionReference: {fileID: -2267559299216444521, guid: 42028e7b805c44c4ea8defb9aab3deaa,
+    type: 3}
+  activateSkillOnPressActionReference: {fileID: 1635382852969753539, guid: 42028e7b805c44c4ea8defb9aab3deaa,
     type: 3}
 --- !u!114 &4847474970383992854
 MonoBehaviour:
@@ -1498,10 +1503,10 @@ MonoBehaviour:
   - {fileID: 3320769967444788621, guid: e60bde8dd085fc945af441aa6c73eeb3, type: 3}
   - {fileID: 3766025939916627449, guid: 32c8b695410a7004e9dafe0033f20f22, type: 3}
   startingActiveSkills:
-  - {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010, type: 3}
-  - {fileID: 0}
   - {fileID: 3430651656058948569, guid: 0513a7db7336b06419cb8e2cc4198262, type: 3}
-  - {fileID: 0}
+  - {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010, type: 3}
+  - {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010, type: 3}
+  - {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010, type: 3}
   passiveSkillset: {fileID: 7583194764638421035}
   activeSkillset: {fileID: 632886800617185851}
 --- !u!114 &7583194764638421035
@@ -1516,10 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0220ff8c12f6f9148b863caee8f1d5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NorthSkill: {fileID: 0}
-  SouthSkill: {fileID: 0}
-  EastSkill: {fileID: 0}
-  WestSkill: {fileID: 0}
 --- !u!114 &632886800617185851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,10 +1533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0220ff8c12f6f9148b863caee8f1d5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NorthSkill: {fileID: 0}
-  SouthSkill: {fileID: 0}
-  EastSkill: {fileID: 0}
-  WestSkill: {fileID: 0}
 --- !u!95 &2611485207567759075
 Animator:
   serializedVersion: 5

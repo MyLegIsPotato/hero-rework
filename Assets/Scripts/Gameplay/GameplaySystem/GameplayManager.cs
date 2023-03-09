@@ -59,10 +59,7 @@ namespace Project.Gameplay.GameplaySystem
         {
             var newPlayer = playerFactory.Spawn(playerPrefab);
             players.Add(playerInput, newPlayer);
-            var skillsetController = newPlayer.GetComponent<SkillsetController>();
-            newPlayer.Setup(playerInput);
-            skillsetController.Setup(newPlayer, passiveSkillSetTarget, activeSkillSetTarget);
-
+            newPlayer.Setup(playerInput, passiveSkillSetTarget, activeSkillSetTarget);
             return newPlayer;
         }
 
