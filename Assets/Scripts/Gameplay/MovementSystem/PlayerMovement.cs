@@ -9,7 +9,7 @@ namespace Project.Gameplay.MovementSystem
         [SerializeField] [Range(0, 0.5f)]
         private float inputDeadzone = 0.1f;
 
-        [SerializeField] [Range(5, 60f)]
+        [SerializeField] [Range(1, 60f)]
         private float rotateDeadzoneAngle = 30f;
 
         public InputVisualizer inputVisualizer;

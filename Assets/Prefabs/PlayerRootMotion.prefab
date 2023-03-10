@@ -1465,7 +1465,7 @@ MonoBehaviour:
   <DashSpeed>k__BackingField: 0
   <RotationSpeed>k__BackingField: 300
   inputDeadzone: 0.2
-  rotateDeadzoneAngle: 45
+  rotateDeadzoneAngle: 5
   inputVisualizer: {fileID: 1723639495964735980}
 --- !u!114 &5604022552604305398
 MonoBehaviour:
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f0cab91c25ec24dae862282df340f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.4
+  smoothTime: 0.3
   playerAnimator: {fileID: 2611485207567759075}
 --- !u!114 &3804538630449825934
 MonoBehaviour:
