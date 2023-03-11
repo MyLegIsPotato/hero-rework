@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RD.lel
+namespace Project.Common.Transforms
 {
     public class Rotator : MonoBehaviour
     {
@@ -8,7 +8,7 @@ namespace RD.lel
         private float spinSpeed = 100;
         public void Update()
         {
-            Spin(spinSpeed * Time.deltaTime);
+            Spin(spinSpeed * UnityEngine.Time.deltaTime);
         }
         
         public void Spin(float spinDelta)

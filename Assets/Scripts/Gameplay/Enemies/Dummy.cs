@@ -1,7 +1,8 @@
 using System;
+using Project.Core.EnemiesSystem;
 using UnityEngine;
 
-namespace RD.lel
+namespace Project.Gameplay.Enemies
 {
     public class Dummy : MonoBehaviour, IDamagable
     {

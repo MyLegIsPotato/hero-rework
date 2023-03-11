@@ -1,6 +1,7 @@
+using Project.Core.EnemiesSystem;
 using UnityEngine;
 
-namespace RD.lel
+namespace Project.Gameplay.WeaponSystem
 {
     public class WeaponStrike : MonoBehaviour, IDamaging
     {

@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace RD.lel
+namespace Project.Core.EnemiesSystem
 {
     [RequireComponent(typeof(TMP_Text))]
     public class HealthPointsDisplay : MonoBehaviour
@@ -21,6 +20,13 @@ namespace RD.lel
         public void UpdateText(string newValue)
         {
             text.SetText(newValue);
+        }
+        
+        private void LateUpdate()
+        {
+            //TODO: Change from main camera to something else I guess?
+            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
+                Camera.main.transform.rotation * Vector3.up);
         }
     }
 }

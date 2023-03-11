@@ -60,8 +60,7 @@ namespace Project.Core.SkillSystem
                     skills[i] = startingSkills[i];
                 }
 
-                skills[i].AssignedSlot = (SkillSlot)i;
-                skills[i].SkillIndex = i;
+                skills[i].AssignSlot((SkillSlot)i, i);
                 skills[i].OnRechargeUpdated += SkillDisplay.UpdateFillImage;
                 skills[i].ActivateSkill();
                 SkillDisplay.SetSkillAppearence(i, Skills[i]);

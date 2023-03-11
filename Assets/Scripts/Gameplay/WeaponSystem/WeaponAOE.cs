@@ -1,15 +1,13 @@
-using System;
 using System.Collections.Generic;
+using Project.Core.EnemiesSystem;
 using UnityEngine;
 
-namespace RD.lel
+namespace Project.Gameplay.WeaponSystem
 {
     public class WeaponAOE : MonoBehaviour, IDamaging
     {
-        [SerializeField]
-        private float damagePoints = 10;
-
-        public float DamagePoints => damagePoints;
+        [field: SerializeField]
+        public float DamagePoints { get; set; }
         
         public List<IDamagable> damagablesInRange = new List<IDamagable>();
 

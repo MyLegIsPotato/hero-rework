@@ -6,15 +6,27 @@ namespace Project.Core.SkillSystem
 {
     public abstract class Skill : MonoBehaviour
     {
-        public SkillSlot AssignedSlot;
-        public int SkillIndex;
         public SkillSettings skillSettings;
         protected Timer skillTimer;
-
+        private int skillIndex;
+        private SkillSlot skillSlot;
+        
         public event Action<int, float> OnRechargeUpdated;
         public event Action<int> OnSkillSelected;
         
+        public SkillSlot AssignedSlot => skillSlot;
+        public int SkillIndex => skillIndex;
         public float RechargeFraction { get; private set; }
+        
+        private void OnDestroy()
+        {
+            skillTimer.OnTimerFinished -= UseSkill;
+        }
+
+        private void Update()
+        {
+            skillTimer.UpdateTimer(Time.deltaTime);
+        }
         
         public void ActivateSkill()
         {
@@ -32,16 +44,12 @@ namespace Project.Core.SkillSystem
             skillTimer.OnTimerFinished -= UseSkill;
         }
         
-        public void OnDestroy()
+        public void AssignSlot(SkillSlot skillSlot, int skillIndex)
         {
-            skillTimer.OnTimerFinished -= UseSkill;
+            this.skillSlot = skillSlot;
+            this.skillIndex = skillIndex;
         }
-
-        public void Update()
-        {
-            skillTimer.UpdateTimer(Time.deltaTime);
-        }
-
+        
         public abstract void UseSkill();
     }
 }

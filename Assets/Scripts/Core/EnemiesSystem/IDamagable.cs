@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace RD.lel
+namespace Project.Core.EnemiesSystem
 {
     public interface IDamagable
     {
