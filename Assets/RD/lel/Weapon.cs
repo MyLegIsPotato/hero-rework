@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace RD.lel
 {
@@ -10,6 +8,11 @@ namespace RD.lel
         private float damagePoints = 10;
 
         public float DamagePoints => damagePoints;
- 
+        
+        public void Damage(IDamagable damagable)
+        {
+            damagable.TakeDamage(this, DamagePoints);
+            Debug.Log("I have damaged the damagable: " + damagable);
+        }
     }
 }

@@ -10,22 +10,24 @@ namespace RD.lel
         [SerializeField]
         private HealthPointsDisplay healthPointsDisplay;
         public float HealthPoints => healthPoints;
-        
+
         public event Action OnHealthZero;
 
         private void Awake()
         {
+            OnHealthZero += () => Debug.Log("Dummy is dead!");
             healthPointsDisplay.UpdateText(healthPoints.ToString());
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(IDamaging damaging, float damage)
         {
             healthPoints -= damage;
             healthPoints = Mathf.Clamp(healthPoints, 0, 100);
             healthPointsDisplay.UpdateText(healthPoints.ToString());
+            if (healthPoints <= 0)
+                OnHealthZero?.Invoke();
         }
-
-
+        
         public void OnTriggerEnter(Collider other)
         {
             Debug.Log("Entered some trigger! " + other.gameObject.name);
