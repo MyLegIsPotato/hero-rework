@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActiveSlash
   m_EditorClassIdentifier: 
   Duration: 0
-  Cooldown: 1
+  Cooldown: 0.25
   EffectiveRange: 3
   Damage: 30
   ProjectileSpeed: 0

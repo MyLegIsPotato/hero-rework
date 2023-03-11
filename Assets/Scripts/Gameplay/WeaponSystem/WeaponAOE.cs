@@ -23,7 +23,7 @@ namespace Project.Gameplay.WeaponSystem
         {
             if (damagablesInRange.Count > 0)
             {
-                var randomIndex = UnityEngine.Random.Range(0, damagablesInRange.Count);
+                var randomIndex = Random.Range(0, damagablesInRange.Count);
                 Damage(damagablesInRange[randomIndex]);
             }
         }
@@ -31,7 +31,6 @@ namespace Project.Gameplay.WeaponSystem
         public void Damage(IDamagable damagable)
         {
             damagable.TakeDamage(this, DamagePoints);
-            Debug.Log("I have damaged the damagable: " + damagable);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -48,6 +47,11 @@ namespace Project.Gameplay.WeaponSystem
             {
                 damagablesInRange.Remove(damagable);
             }
+        }
+
+        private void DamagableKilled(IDamagable killedDamagable)
+        {
+            Debug.Log(killedDamagable + " has been killed!");
         }
     }
 }

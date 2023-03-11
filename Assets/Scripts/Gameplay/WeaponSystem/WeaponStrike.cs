@@ -1,3 +1,4 @@
+using System;
 using Project.Core.EnemiesSystem;
 using UnityEngine;
 
@@ -5,15 +6,20 @@ namespace Project.Gameplay.WeaponSystem
 {
     public class WeaponStrike : MonoBehaviour, IDamaging
     {
-        [SerializeField]
-        private float damagePoints = 10;
-
-        public float DamagePoints => damagePoints;
+        [field: SerializeField]
+        public float DamagePoints { get; set; }
         
         public void Damage(IDamagable damagable)
         {
             damagable.TakeDamage(this, DamagePoints);
-            Debug.Log("I have damaged the damagable: " + damagable);
+        }
+        
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out IDamagable damagable))
+            {
+                damagable.TakeDamage(this, DamagePoints);
+            }
         }
     }
 }

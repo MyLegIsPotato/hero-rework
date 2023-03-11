@@ -1,4 +1,3 @@
-using System;
 using Project.Core.EnemiesSystem;
 using Project.Core.SkillSystem;
 using Project.Gameplay.WeaponSystem;
@@ -39,7 +38,6 @@ namespace Project.Gameplay.SkillSystem.Skills
             skillTimer.Reset();
             
             WeaponAoe.DamageAll();
-            Debug.Log("Electric Zone!");
         }
     }
 }

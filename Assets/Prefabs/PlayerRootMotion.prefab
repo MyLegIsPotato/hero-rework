@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 1
   <DashSpeed>k__BackingField: 0
-  <RotationSpeed>k__BackingField: 300
+  <RotationSpeed>k__BackingField: 180
   inputDeadzone: 0.2
   rotateDeadzoneAngle: 5
   inputVisualizer: {fileID: 1723639495964735980}
