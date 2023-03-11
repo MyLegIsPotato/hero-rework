@@ -6,17 +6,16 @@ namespace Project.Core.SkillSystem
 {
     public abstract class Skill : MonoBehaviour
     {
-        public float RechargeFraction { get; private set; }
-        
+        public SkillSlot AssignedSlot;
+        public int SkillIndex;
         public SkillSettings skillSettings;
-        public Timer skillTimer;
+        protected Timer skillTimer;
 
         public event Action<int, float> OnRechargeUpdated;
         public event Action<int> OnSkillSelected;
-
-        public SkillSlot AssignedSlot;
-        public int SkillIndex;
-
+        
+        public float RechargeFraction { get; private set; }
+        
         public void ActivateSkill()
         {
             skillTimer = new Timer(skillSettings.Cooldown, skillSettings.AutoAttack);

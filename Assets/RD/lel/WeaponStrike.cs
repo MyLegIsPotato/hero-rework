@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RD.lel
 {
-    public class Weapon : MonoBehaviour, IDamaging
+    public class WeaponStrike : MonoBehaviour, IDamaging
     {
         [SerializeField]
         private float damagePoints = 10;

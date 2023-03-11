@@ -46,9 +46,12 @@ namespace Project.Core.SkillSystem
 
             for (int i = 0; i < startingSkills.Count; i++)
             {
+                if(startingSkills[i] == null)
+                    return;
+                
                 if (i >= skills.Count || skills[i] == null)
                 {
-                    skills.Insert(i, Instantiate(startingSkills[i]));
+                    skills.Insert(i, Instantiate(startingSkills[i], this.transform));
                     if(skills[i] == null)
                         continue;
                 }
