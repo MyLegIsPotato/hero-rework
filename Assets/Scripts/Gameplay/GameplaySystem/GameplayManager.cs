@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Project.Common;
 using Project.Core.InputSystem;
@@ -29,6 +30,8 @@ namespace Project.Gameplay.GameplaySystem
         private PlayerFactory playerFactory;
 
         private readonly Dictionary<PlayerInput, Player> players = new();
+        
+        public event Action<Player> OnPlayerJoined;
 
         private void Start()
         {
@@ -60,6 +63,7 @@ namespace Project.Gameplay.GameplaySystem
             var newPlayer = playerFactory.Spawn(playerPrefab);
             players.Add(playerInput, newPlayer);
             newPlayer.Setup(playerInput, passiveSkillSetTarget, activeSkillSetTarget);
+            OnPlayerJoined?.Invoke(newPlayer);
             return newPlayer;
         }
 

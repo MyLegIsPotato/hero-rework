@@ -25,8 +25,7 @@ namespace Project.Core.EnemiesSystem
         private void LateUpdate()
         {
             //TODO: Change from main camera to something else I guess?
-            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-                Camera.main.transform.rotation * Vector3.up);
+            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
         }
     }
 }

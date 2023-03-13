@@ -13,7 +13,7 @@ namespace Project.Common
             {
                 if (instance is null)
                     Debug.LogError("Instance of " + typeof(T) +
-                                   " singleton not initialized yet! Can't acces!. Please add it to the scene.");
+                                   " singleton not initialized yet! Can't access!. Please add it to the scene.");
                 return instance;
             }
         }

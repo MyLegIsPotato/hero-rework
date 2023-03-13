@@ -1504,9 +1504,7 @@ MonoBehaviour:
   - {fileID: 0}
   startingActiveSkills:
   - {fileID: 3430651656058948569, guid: 0513a7db7336b06419cb8e2cc4198262, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4630170077678409589, guid: 1aa39640e661d0e49a6ab6a315bc9010, type: 3}
   passiveSkillset: {fileID: 7583194764638421035}
   activeSkillset: {fileID: 632886800617185851}
 --- !u!114 &7583194764638421035

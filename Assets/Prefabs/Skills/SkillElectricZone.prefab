@@ -19601,6 +19601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526198610506627147}
   - component: {fileID: 3320769967444788621}
+  - component: {fileID: 2189251903179299397}
   m_Layer: 0
   m_Name: SkillElectricZone
   m_TagString: Untagged
@@ -19639,6 +19640,18 @@ MonoBehaviour:
   skillSettings: {fileID: 11400000, guid: 4f8b2d58ba6ee9940999258017b8bee4, type: 2}
   zoneRadius: 2
   WeaponAoe: {fileID: 2132860165732332723}
+--- !u!114 &2189251903179299397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956049428251785555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c9e31cab4fd244eb8e456c36e17e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8386685390177537756
 GameObject:
   m_ObjectHideFlags: 0
